@@ -1,0 +1,148 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\Analog Devices\VisualDSP 3.5 16-Bit\System/linker_map_ss1.xsl"?>
+<!DOCTYPE DOCUMENT SYSTEM "C:\Program Files (x86)\Analog Devices\VisualDSP 3.5 16-Bit\System/linker_map.dtd">
+<DOCUMENT>
+<LINKPROJECT id='0354F448' name='p0' orig_file_name='.\1.dxe' >
+<FILE_NAME><![CDATA[.\1.dxe]]></FILE_NAME>
+<MEMORY id='01EFF308' name='mem_INT_RSTI' start_address='0x0' end_address='0x3' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687128' name='sec_INT_RSTI' type='SHT_PROGBITS' start_address='0x0' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='01EFF368' name='mem_INT_IRQ2' start_address='0x4' end_address='0x7' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687198' name='sec_INT_IRQ2' type='SHT_PROGBITS' start_address='0x4' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='01EFF378' name='mem_INT_IRQL1' start_address='0x8' end_address='0xb' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687208' name='sec_INT_IRQL1' type='SHT_PROGBITS' start_address='0x8' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='01EFF388' name='mem_INT_IRQL0' start_address='0xc' end_address='0xf' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687278' name='sec_INT_IRQL0' type='SHT_PROGBITS' start_address='0xc' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='01EFF398' name='mem_INT_SPORT0X' start_address='0x10' end_address='0x13' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='036872E8' name='sec_INT_SPORT0X' type='SHT_PROGBITS' start_address='0x10' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='01EFF358' name='mem_INT_SPORT0R' start_address='0x14' end_address='0x17' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687358' name='sec_INT_SPORT0R' type='SHT_PROGBITS' start_address='0x14' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD4E8' name='mem_INT_IRQE' start_address='0x18' end_address='0x1b' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='036873C8' name='sec_INT_IRQE' type='SHT_PROGBITS' start_address='0x18' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD2E8' name='mem_INT_BDMA' start_address='0x1c' end_address='0x1f' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687438' name='sec_INT_BDMA' type='SHT_PROGBITS' start_address='0x1c' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD438' name='mem_INT_IRQ1' start_address='0x20' end_address='0x23' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='036874A8' name='sec_INT_IRQ1' type='SHT_PROGBITS' start_address='0x20' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD538' name='mem_INT_IRQ0' start_address='0x24' end_address='0x27' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687518' name='sec_INT_IRQ0' type='SHT_PROGBITS' start_address='0x24' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD568' name='mem_INT_TIMER' start_address='0x28' end_address='0x2b' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687588' name='sec_INT_TIMER' type='SHT_PROGBITS' start_address='0x28' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD5C8' name='mem_INT_PWRDWN' start_address='0x2c' end_address='0x2f' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x4' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='036875F8' name='sec_INT_PWRDWN' type='SHT_PROGBITS' start_address='0x2c' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD5A8' name='mem_code' start_address='0x30' end_address='0x37ba' type='PM' qualifier='RAM' width='0x18' words_used='0x378b' words_unused='0x0' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687668' name='sec_code' type='SHT_PROGBITS' start_address='0x30' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+<OUTPUT_SECTION id='036876D8' name='.meminit' type='SHT_NOBITS' start_address='0x30' word_size='0x378b' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD598' name='mem_data2' start_address='0x37bb' end_address='0x3fff' type='PM' qualifier='RAM' width='0x18' words_used='0x0' words_unused='0x845' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687780' name='sec_data2' type='SHT_PROGBITS' start_address='0x37bb' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD338' name='mem_data1' start_address='0x0' end_address='0x2fff' type='DM' qualifier='RAM' width='0x10' words_used='0x0' words_unused='0x3000' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687710' name='sec_data1' type='SHT_PROGBITS' start_address='0x0' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD498' name='mem_heap' start_address='0x3000' end_address='0x37ff' type='DM' qualifier='RAM' width='0x10' words_used='0x0' words_unused='0x800' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='03687828' name='sec_heap' type='SHT_PROGBITS' start_address='0x3000' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+<MEMORY id='034DD468' name='mem_stack' start_address='0x3800' end_address='0x3fdf' type='DM' qualifier='RAM' width='0x10' words_used='0x0' words_unused='0x7e0' >
+<OUTPUT_SECTIONS>
+<OUTPUT_SECTION id='036877F0' name='sec_stack' type='SHT_PROGBITS' start_address='0x3800' word_size='0x0' word_size_unmapped='0x0' >
+<INPUT_SECTIONS>
+</INPUT_SECTIONS>
+</OUTPUT_SECTION>
+</OUTPUT_SECTIONS>
+</MEMORY>
+</LINKPROJECT>
+</DOCUMENT>

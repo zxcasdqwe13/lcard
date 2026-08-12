@@ -1,0 +1,68 @@
+{Calculate base addr for taps array and put to I3}
+M3=-nTaps; MODIFY (I3,M3); M3=1;
+I6=FirCoefAddr; M6=1; L6=64;
+{I7=^res; M7=0x1; L7=%res;}
+
+
+{
+        FIR Transversal Filter Subroutine
+
+        Calling Parameters
+                I3 --> Oldest input data value in delay line
+               
+                I7 --> Beginning of filter coefficient table
+                L6 = Filter length (N)
+                M1,M6 = 1
+                CNTR = Filter length - 1 (N-1)
+
+        Return Values
+                MR1 = Sum of products (rounded and saturated)
+                I6 --> Oldest input data value in delay line
+                I1 --> Beginning of filter coefficient table
+
+        Altered Registers
+                MX0,MY0,MR
+
+        Computation Time
+                N - 1 + 5 + 2 cycles
+
+        All coefficients and data values are assumed to be in 1.15 format.
+}
+CNTR=nTaps-1; {set counter}
+fir:    MR=0, MX0=DM(I3,M3), MY0=PM(I6,M6);
+        DO sop UNTIL CE;
+sop:            MR=MR+MX0*MY0(SS), MX0=DM(I3,M3), MY0=PM(I6,M6);
+        MR=MR+MX0*MY0(RND);
+        IF MV SAT MR;
+
+
+
+{save result}
+{DM(I3,M3)=MR1;}
+
+
+
+PutPm(MR1,PrevFiltValAddr);
+
+{!!delay counter from ttl to on switch adc sampling rate works as clock!!}
+delaycounter:
+{check startcounterflag}
+GetPm(AX0,TtlOutAddr);
+AR= TSTBIT 0 of AX0; 
+IF EQ JUMP checkcounter;
+{IF ON -- reset counter and set ttlbit 2 to 1}
+AR=2;
+GetPm(AR,CounterAddr);
+SetHighTtlChannel(AR,1);
+
+{check counter value, decrement untill NULL}
+checkcounter:
+GetPm(AX0,CounterAddr);
+AR= PASS AY0;
+IF EQ JUMP switchttlback;
+AR=AR-1;
+PutPm(AR,TtlOutAddr);
+JUMP enddelaycounter;
+switchttlback: 
+SetLowTtlChannel(AR,1);
+enddelaycounter:

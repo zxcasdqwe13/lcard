@@ -1,0 +1,8 @@
+$m.i,d,rAVECTOR_ADD 
+$d.v,d,rAX_INPUT ,s000A 
+$d.v,p,a0064 ,rAY_INPUT ,s000A 
+$d.pZ_OUT 
+$d.lSTART ,o001C 
+$d.lADD_LOOP ,o0028 
+$m.o,l002C 
+$ 

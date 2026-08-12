@@ -1,0 +1,7 @@
+This is an example program to be used with the
+CBUG portion of the simulator. To compile the
+code for CBUG, use the -g switch to produce 
+symbols and the -save-temps switch to save the .s file
+used by CBUG
+g21 example3.c -g -save-temps -v -o cexample
+sim2101 -a ..\..\lib\210x -e cexample

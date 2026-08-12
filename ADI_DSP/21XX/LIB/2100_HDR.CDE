@@ -1,0 +1,11 @@
+$m.i,d,a0000 ,rAADSP2100_Runtime_Header 
+$c18000F .u___lib_int0_ctrl ,f04 
+$c18000F .u___lib_int1_ctrl ,f04 
+$c18000F .u___lib_int2_ctrl ,f04 
+$c18000F .u___lib_int3_ctrl ,f04 
+$c1C000F .u___lib_setup_environment ,f04 
+$c1C000F .u___lib_setup_args ,f04 
+$c1C000F .umain_ ,f04 
+$c08000F 
+$m.o,l0008 
+$ 

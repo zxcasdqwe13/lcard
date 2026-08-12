@@ -1,0 +1,16 @@
+$m.i,d,a0000 ,rAADSP2100_Runtime_Header 
+$d.l___interrupt0 ,o0000 
+$d.l___interrupt1 ,o0001 
+$d.l___interrupt2 ,o0002 
+$d.l___interrupt3 ,o0003 
+$d.l___reset ,o0004 
+$d.xmain_ 
+$d.x___lib_int0_ctrl 
+$d.x___lib_int1_ctrl 
+$d.x___lib_int2_ctrl 
+$d.x___lib_int3_ctrl 
+$d.x___lib_setup_heap 
+$d.x___lib_setup_args 
+$d.x___lib_setup_environment 
+$m.o,l0008 
+$ 

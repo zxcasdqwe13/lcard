@@ -1,0 +1,16 @@
+ This directory contains the code and data files 
+corresponding to example program #1 listed in 
+chapter 2 (Getting Started) in the ADSP-2100 Family
+Simulator Manual.
+
+Build the architecture file:
+bld21 example1
+
+Assemble the program:
+asm21 vectadd
+
+link the files:
+ld21 vectadd -a example1 -g -e vectadd
+
+Invoke the simulator:
+sim2101 -a example1

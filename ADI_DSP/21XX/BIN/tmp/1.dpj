@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<visualdsp-project schema="16" name="1" file="C:\Users\Asus\Desktop\dsp440\E14-440\DSP\1.dpj" generated="Sun Aug 11 04:26:47 2013" expanded="yes">
+	<!-- Project build target -->
+	<target>
+		<processor>ADSP-2185</processor>
+		<extension>.dxe</extension>
+		<type>DSP executable file</type>
+	</target>
+	<!-- Configurations -->
+	<configurations active="Debug">
+		<configuration name="Debug">
+			<intermediate-dir>.</intermediate-dir>
+			<output-dir>.</output-dir>
+			<tools>
+				<tool type="VCSE">
+					<option><![CDATA[|-Version>3.5|NOSWITCH>1]]></option>
+				</tool>
+				<tool type="Compiler">
+					<option><![CDATA[|-Version>3.5|-O1>0|-Ov>100|-g>1]]></option>
+				</tool>
+				<tool type="Assembler">
+					<option><![CDATA[|-Version>3.5|-g>1|AdditionalOptions>-legacy -cs{]]></option>
+				</tool>
+				<tool type="Linker">
+					<option><![CDATA[|-Version>3.5|NOSWITCH>1]]></option>
+				</tool>
+				<tool type="Archiver">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Splitter">
+					<option><![CDATA[|-Version>3.5|-s>1|-pm>1]]></option>
+				</tool>
+			</tools>
+		</configuration>
+		<configuration name="Release">
+			<intermediate-dir>.\Release</intermediate-dir>
+			<output-dir>.\Release</output-dir>
+			<tools>
+				<tool type="VCSE">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Compiler">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Assembler">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Linker">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Archiver">
+					<option><![CDATA[]]></option>
+				</tool>
+				<tool type="Splitter">
+					<option><![CDATA[]]></option>
+				</tool>
+			</tools>
+		</configuration>
+	</configurations>
+	<!-- Project folders -->
+	<folders>
+		<folder name="Header Files" ext=".h,.hpp,.hxx" expanded="yes">
+			<files>
+				<file name=".\ADC.H">
+				</file>
+				<file name=".\CONST.H">
+				</file>
+				<file name=".\DAC.H">
+				</file>
+				<file name=".\FIFO.H">
+				</file>
+				<file name=".\FLASH.H">
+				</file>
+				<file name=".\SYNCHRO.H">
+				</file>
+				<file name=".\TTL.H">
+				</file>
+				<file name=".\VAR.H">
+				</file>
+			</files>
+		</folder>
+		<folder name="Linker Files" ext=".ldf,.dlb" expanded="yes">
+			<files>
+				<file name=".\1.ldf">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+			</files>
+		</folder>
+		<folder name="Source Files" ext=".c,.cpp,.cxx,.asm,.dsp,.s" expanded="yes">
+			<files>
+				<file name=".\E440.DSP">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.</intermediate-dir>
+							<output-dir>.</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\INTTABLE.DSP">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.</intermediate-dir>
+							<output-dir>.</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+			</files>
+		</folder>
+	</folders>
+	<!-- Files under root directly -->
+	<files>
+		<file name=".\E440.dat">
+		</file>
+	</files>
+</visualdsp-project>

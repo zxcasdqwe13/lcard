@@ -1,0 +1,6 @@
+.SYSTEM example;
+.ADSP2101;
+.SEG/PM/RAM/ABS=0/CODE/DATA     ext_pm[2048];
+.SEG/DM/RAM/ABS=14336/DATA       int_dm[1024];
+.PORT/DM/ABS=0                  z_out;
+.ENDSYS;

@@ -1,0 +1,2449 @@
+
+Help File for ADSP-2100 Family Simulators
+
+%%
+1,0:1
+2,0:2
+3,0:3
+4,0:4
+5,0:5
+6,0:6
+7,0:7
+8,0:8
+9,0:9
+10,0:10
+11,0:11
+12,0:12
+14,0:14
+15,0:15
+16,0:16
+17,0:17
+18,0:18
+19,0:19
+20,0:20
+21,0:21
+22,0:21
+23,0:23
+24,0:23
+25,0:23
+26,0:23
+27,0:23
+28,0:23
+29,0:29
+30,0:29
+32,0:32
+33,0:32
+34,0:34
+35,0:35
+36,0:36
+37,0:37
+38,0:38
+39,0:39
+40,0:39
+41,0:39
+42,0:39
+43,0:43
+44,0:44
+45,0:44
+46,0:46
+47,0:47
+48,0:47
+49,0:49
+53,0:49
+55,0:49
+56,0:56
+57,0:56
+58,0:56
+59,0:56
+60,0:60
+61,0:60
+62,0:60
+64,0:64
+65,0:65
+66,0:66
+67,0:67
+69,0:69
+70,0:176
+76,0:76
+78,0:78
+84,0:84
+85,0:84
+86,0:84
+87,0:87
+91,0:91
+92,0:92
+93,0:93
+94,0:93
+97,0:97
+98,0:97
+99,0:99
+100,0:99
+101,0:101
+103,0:103
+105,0:105
+106,0:106
+107,0:107
+108,0:108
+109,0:109
+110,0:110
+111,0:111
+112,0:112
+113,0:113
+114,0:114
+115,0:115
+116,0:116
+117,0:117
+118,0:117
+121,0:121
+122,0:122 
+123,0:122
+124,0:124
+125,0:125
+126,0:126
+128,0:128
+129,0:129
+131,0:131
+132,0:132
+133,0:133
+134,0:134
+135,0:135
+136,0:136
+137,0:137
+138,0:138
+140,0:140
+141,0:141
+142,0:142
+147,0:147
+150,0:150
+151,0:151
+154,0:154
+156,0:156
+157,0:157
+158,0:158
+159,0:159
+160,0:160
+162,0:162
+163,0:163
+166,0:166
+171,0:171
+172,0:172
+173,0:173
+176,0:176
+177,0:177
+178,0:178
+179,0:179
+182,0:182
+183,0:183
+184,0:184
+185,0:185
+186,0:186
+187,0:187
+188,0:188
+189,0:189
+190,0:190
+191,0:191
+192,0:192
+193,0:193
+194,0:194
+195,0:195
+%%
+.1
+Menu Bar 
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The menu bar provides the means for all simulator windows to be chosen and 
+subsequently displayed.  At the top of the screen are a list of categories.
+Upon selecting one of the categories at the top of screen, a drop down submenu 
+containing choices relevant to the selected category will appear.  These choices
+typically specify windows to open or actions to occur.  Selecting one of these
+options will either open the chosen window or cause the simulator to take the 
+given action. 
+
+Note: The <ESC> key will cancel a menu selection.  Press <ESC> twice if a
+submenu is displayed, but just press <ESC> once if only the menu bar itself is
+selected.  
+
+These are the categories of the menu bar:
+
+ @187[File] @188[Register]  @189[Memory]  @190[Stacks]  @191[Commands]  @192[Execution]  @193[Display]  @194[Misc]  @186[Help]  @195[Quit]
+ 
+.2
+Exit
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Exit function provides a means to leave the simulator and return to the
+operating system.  The current display configuration, this includes window
+sizes, positions, colors are written out
+to the last window file that was loaded.  If no window file was loaded, the
+configuration is saved to a file which the simulator will read in by default.
+
+A pop-up window appears prompting the user for confirmation before the simulator
+exits. 
+
+See also @3[Quit].
+.3
+Quit
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Quit function provides a means to leave the simulator and return to the
+operating system.  No display configuration data is saved.
+
+A pop-up window appears prompting the user for confirmation before the simulator
+exits. 
+
+See also @2[Exit].
+.4
+Abort 
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Abort function actually provides several functions depending upon the
+current context.  It is usually invoked by pressing the <ESC> key.
+
+   - When invoked from the @183[help system], this function will return the user to 
+the simulator.
+
+   - When invoked from the active window, this function will close the active
+window.
+
+   - When invoked from the @1[menu bar], this function will cancel any selections
+made from the menu.
+
+   - When invoked from a pop-up, this function will close the pop-up and cancel
+any actions incurred by the pop-up.
+
+.5
+Next Window
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function allows the user to move between windows.  This function is invoked
+by the @185[<F2>] key.  
+.6
+Redraw Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function simply redraws the entire screen.  This function is invoked from
+the @1[menu bar].   
+.7
+Center Windows
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will center all open windows to the middle of the screen.  It is 
+typically used when some window(s) has been moved off the screen.  This function
+is invoked from the @1[menu bar]. 
+.8
+List Windows
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will produce a pop-up window containing a list of all open
+windows.  The user can select from the list a window to transfer control into or
+simply remain in the current window.
+
+This function can be invoked from the @1[menu bar] or by pressing @185[<Ctrl-L>].
+
+.9
+Move Window Up
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will move the current window, if that window is a movable window,
+toward the top of the screen.  This function can be invoked by pressing the
+@185[<F5>] key.  
+
+The mouse can also be used to move windows by clicking and dragging the window
+border to the new location.
+.10
+Move Window Down
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will move the current window, if that window is a movable window,
+toward the bottom of the screen.  This function can be invoked by pressing
+the @185[<F6>] key.  
+
+The mouse can also be used to move windows by clicking and dragging the window
+border to the new location.
+.11
+Move Window Left
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will move the current window, if that window is a movable window,
+toward the left side of the screen.  This function can be invoked by pressing
+the @185[<F7>] key.  
+
+The mouse can also be used to move windows by clicking and dragging the window
+border to the new location.
+.12
+Move Window Right
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will move the current window, if that window is a movable window,
+toward the right side of the screen.  This function can be invoked by pressing
+the @185[<F8>] key.  
+
+The mouse can also be used to move windows by clicking and dragging the window
+border to the new location.
+.14
+Make Window Taller
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will vertically increase the size of the current window, if that
+window is a sizeable window.  This function can be invoked by pressing the
+@185[<Shift-F5>] key.  
+
+The mouse can also be used to size windows by clicking and dragging a corner
+of the window border.
+.15
+Make Window Shorter
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will vertically decrease the size of the current window, if that
+window is a sizeable window.  This function can be invoked by pressing the
+@185[<Shift-F6>] key.  
+
+The mouse can also be used to size windows by clicking and dragging a corner
+of the window border.
+.16
+Make Window Wider
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will horizontally increase the size of the current window, if that
+window is a sizeable window.  This function can be invoked by pressing the
+@185[<Shift-F7>] key.  
+
+The mouse can also be used to size windows by clicking and dragging a corner
+of the window border.
+.17
+Make Window Narrower
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will horizontally decrease the size of the current window, if that
+window is a sizeable window.  This function can be invoked by pressing the
+@185[<Shift-F8>] key.  
+
+The mouse can also be used to size windows by clicking and dragging a corner
+of the window border.
+.18
+Toggle Window Format
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will toggle the current display format of the current window, 
+assuming the window is capable of supporting multiple formats.  For example,
+when the current window is a Program Memory window, this function will
+change the display format from it's current format to either hexadecimal, 
+1.15 fixed point, disassembled.  
+
+This function is normally invoked from the @1[menu bar] or via the @185[<Ctrl-T>] key.
+
+.19
+Video Mode
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function allows the user to change the video mode of the display.  The
+simulator supports 3 video modes, all of which are text modes:
+
+                 - 80 Columns x 25 Rows (default)
+                 - 80 Columns x 43 Rows (EGA and VGA only)
+                 - 80 Columns x 50 Rows (VGA only)
+
+The simulator first determines which modes are supported on the hardware 
+platform and then pops up a selection menu containing a list of choices based
+upon the hardware configuration.  The video mode is saved in and loaded from
+the the window file.  This function is invoked from the the @1[menu bar]. 
+
+See also @106[Save Window File] and @105[Load Window File].
+
+(NOTE: This feature is supported on PC platforms only.)
+.20
+About Simulator...
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function displays information about the simulator.  This function is
+invoked from the the @1[menu bar]. 
+
+
+.21
+DAG Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+These are the Data Address Generator  (DAG) registers.  The DAGs are used to
+generate memory addresses.  There are 4 sets of 14 bit registers in each DAG.
+
+                    Index Registers:   I0 thru I3 DAG1  I4 thru I7 DAG2
+                    Modify Registers:  M0 thru M3 DAG1  M4 thru M7 DAG2
+                    Length Registers:  L0 thru L3 DAG1  L4 thru L7 DAG2
+
+The DAG registers can be displayed in hexadecimal and decimal formats. 
+Note that in the decimal display format the I and L registers are
+displayed as 14 bit unsigned values whereas the M registers are displayed in 14
+bit signed two's complement format.  The current format can be changed by 
+pressing @18[<Ctrl-T>].
+
+.23
+Computational Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of the computational registers.  These registers are the
+foreground or background ALU and MAC registers. The selection of primary and
+secondary sets is made via the @34[MSTAT] register.
+
+The registers can be displayed in hexadecimal, decimal 
+and 1.15 fixed point formats.
+The current format can be changed by pressing @18[<Ctrl-T>].
+.29
+Memory Mapped Control Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The control registers consist of the wait state registers, (PWAIT and DWAIT0
+thru DWAIT4), the timer control registers ,(timer scale, timer period, and
+timer count), the sport 0 and sport 1 enables, and the boot control 
+registers (boot force, boot page, boot wait, and boot mode for 2111 and 2150).
+The Rom Enable register is also here for the 2150 simulator. All these values
+may also be modified in the @60[data memory window].
+.32
+Program Control Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The program control registers include the program counter (PC), the counter
+register (CNTR), the cycle count (CYCLE), the last DM address accessed 
+(DM_ADDR), and the last PM address accessed (PM_ADDR). The cycle count and
+the PM and DM address registers are NOT real registers which exist in the
+2100 family. These are provided for convenience and debugging help.
+.34
+Status Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The arithmetic status (ASTAT), the mode status register (MSTAT), and the
+stack status register (SSTAT) are broken down in this window.
+The Arithmetic Status Register (ASTAT) information is generated by the 
+computational units.  The bits in ASTAT are defined as follows:
+
+   Bit    Name    Definition
+    0     AZ      ALU result zero or floating point underflow
+    1     AV      ALU overflow
+    2     AN      ALU result negative
+    3     AC      ALU fixed point carry
+    4     AS      ALU X input sign 
+    5     AQ      ALU quotient sign
+    6     MV      MAC overflow
+    7     SS      Shifter input sign
+
+@34[more]
+The bits in the MSTAT register are defined as follows:
+
+   Bit    Name    Definition
+    0     RBANK   0 primary, 1 secondary registers
+    1     BIT_R   1 = bit reverse operation
+    2     ALUOV   ALU overflow latch mode
+    3     ARSAT   AR saturation mode
+    4     MACRP   MAC result placement mode (not 2100)
+    5     T_ENA   Timer enable (not 2100)
+    6     G_ENA   Go Mode enabled (not 2100)
+
+The bits in the SSTAT register are defined as follows:
+
+   Bit    Name    Definition
+    0     PC_E    PC stack empty        see also @113[PC stack]
+    1     PC_O    PC stack overflow     see also @113[PC stack]
+    2     CS_E    Count stack empty     see also @115[Loop stack]
+    3     CS_O    Count stack overflow  see also @115[Loop Stack]
+    4     SS_E    Status stack empty    see also @114[Status stack]
+    5     SS_O    Status stack overflow see also @114[Status stack]
+    6     LS_E    Loop stack empty      see also @116[Loop address]
+    7     LS_O    Loop stack overflow   see also @116[Loop address]
+.35
+Flag Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The flag registers consist of a flag-in pin and a flag-out pin. The 2111
+and 2150 simulators also have three additional flag registers -- FL0,FL1,
+and FL2.
+
+.36
+Interrupt Control Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Interrupt Control Registers consist of the interrupt requested 
+register (IREQ), the interrupt mask register (IMASK), and the interrupt 
+control register (ICNTL). All simulators except for the 2100 also have
+the interrupt force register (IFC).
+IREQ is not a real 2100 family register. It shows which interrupts are 
+pending and is provided for convenience. The bits in IREQ map with the bits
+in IMASK.
+
+The bits in the ICNTL register are defined as follows:
+   Bit      Definition
+    0       IRQ0 sensitivity 0 = level , 1 = edge
+    1       IRQ1 sensitivity 0 = level , 1 = edge
+    2       IRQ2 sensitivity 0 = level , 1 = edge
+    3       IRQ3 sensitivity 0 = level , 1 = edge (2100 only)
+    4       Interrupt Nesting mode
+
+@36[more]
+The bits in the IFC register are defined as follows:
+   (2101&2111)
+   Bit      Definition
+    0       Timer interrupt clear
+    1       SPORT 1 receive or IRQ0 interrupt clear
+    2       SPORT 1 transmit or IRQ1 interrupt clear
+    3       SPORT 0 receive interrupt clear
+    4       SPORT 0 transmit interrupt clear
+    5       IRQ2 interrupt clear
+
+    6       Timer interrupt force
+    7       SPORT 1 receive or IRQ0 interrupt force
+    8       SPORT 1 transmit or IRQ1 interrupt force
+    9       SPORT 0 receive interrupt force
+    10      SPORT 0 transmit interrupt force
+    11      IRQ2 interrupt force
+
+@36[more]
+The IFC bit definitions for 2150 are defined as follows:
+   Bit      Definition
+    0       Timer interrupt clear
+    1       SPORT 1 receive or IRQ0 interrupt clear
+    2       SPORT 1 transmit or IRQ1 interrupt clear
+    3       CODEC  receive interrupt clear
+    4       CODEC  transmit interrupt clear
+    5       SPORT 0 receive interrupt clear
+    6       SPORT 0 transmit interrupt clear
+    7       IRQ2 interrupt clear
+
+    8       Timer interrupt force
+    9       SPORT 1 receive or IRQ0 interrupt force
+    10      SPORT 1 transmit or IRQ1 interrupt force
+    11      CODEC receive interrupt force
+    12      CODEC transmit interrupt force
+    13      SPORT 0 receive interrupt force
+    14      SPORT 0 transmit interrupt force
+    15      IRQ2 interrupt force
+
+@36[more]
+The bits in the IMASK register are defined for the 2100 as follows:
+   Bit      Definition
+    0       IRQ0 Enable
+    1       IRQ1 Enable
+    2       IRQ2 Enable
+    3       IRQ3 Enable
+
+The bits in the IMASK register are defined for the 2101 as follows:
+   Bit      Definition
+    0       Timer interrupt enable
+    1       SPORT 1 receive or IRQ0 interrupt enable
+    2       SPORT 1 transmit or IRQ1 interrupt enable
+    3       SPORT 0 receive interrupt enable
+    4       SPORT 0 transmit interrupt enable
+    5       IRQ2 interrupt enable
+
+@36[more]
+The bits in the IMASK register are defined for the 2111 as follows:
+   Bit      Definition
+    0       Timer interrupt enable
+    1       SPORT 1 receive or IRQ0 interrupt enable
+    2       SPORT 1 transmit or IRQ1 interrupt enable
+    3       SPORT 0 receive interrupt enable
+    4       SPORT 0 transmit interrupt enable
+    5       HIP read interrupt enable
+    6       HIP write interrupt enable
+    7       IRQ2 interrupt enable
+
+@36[more]
+The bits in the IMASK register are defined for the 2150 as follows:
+   Bit      Definition
+    0       Timer interrupt enable
+    1       SPORT 1 receive or IRQ0 interrupt enable
+    2       SPORT 1 transmit or IRQ1 interrupt enable
+    3       CODEC receive interrupt enable
+    4       CODEC transmit interrupt enable
+    5       SPORT 0 receive interrupt enable
+    6       SPORT 0 transmit interrupt enable
+    7       HIP read interrupt enable
+    8       HIP write interrupt enable
+    9       IRQ2 interrupt enable
+
+@36[first screen]
+.37
+PX Register
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The PX register is used for 24 bit data transfers. Essentially, the LSB of
+data from a read of PM data is loaded into PX. The LSB of data when writing 
+to PM data memory is written from the PX register.
+.38
+CE Register
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The CE register is not a real register. It reports the state of the counter 
+empty logic from inside the chip. It is brought out here for debugging
+purposes.
+.39
+Sport Control Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The SPORT control registers are broken out by SPORT in these windows.
+(0,1) refers to SPORT 0 or SPORT 1.
+The following chart describes these registers:
+
+Name                  Description
+SLEN(0,1)             serial length of data
+DTYPE(0,1)            data type (format of the serial data)
+ISCLK(0,1)            sclk required flag
+IRFS(0,1)             internal receive frame synch 
+ITFS(0,1)             internal transmit frame synch 
+RFSR(0,1)             receive frame synch required flag
+TFSR(0,1)             transmit frame synch required flag
+RFSW(0,1)             receive frame synch width
+TFSW(0,1)             transmit frame synch width
+SCLKDIV(0,1)          sclk divisor (use to set up frequency)
+RFSDIV(0,1)           receive frame synch divisor 
+@39[more]
+RBUF(0,1)             receive autobuffering enable
+TBUF(0,1)             transmit autobuffering enable
+RIREG(0,1)            receive autobuffering I register
+TIREG(0,1)            transmit autobuffering I register
+RMREG(0,1)            receive autobuffering M register
+TMREG(0,1)            transmit autobuffering M register
+MCRE0                 multichannel receive word zero enables
+MCRE1                 multichannel receive word one enables
+MCTE0                 multichannel transmit word zero enables
+MCTE1                 multichannel transmit word one enables
+MCE0                  multichannel enable
+MCEFD                 multichannel frame delay
+RX(0,1)               receive register          
+TX(0,1)               transmit register          
+@39[first page]
+.43
+Serial Port input/output files
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+To simulate a serial port, you open it, assigning an input file and / or
+an output file to it. You can also examine and change the values of 
+registers associated with SPORT operation. This section describes commands
+and windows used in SPORT simulation. See @39[Sport Registers].
+
+SPORTs (serial ports must be explicitly opened to be simulated. When you open 
+a SPORT, you associate it with one or two data files. An input data file serves
+as the source for simulated serial input. An output data file serves as the 
+destination for simulated serial output. You can analyze these data files after 
+simulation to assess the processing of your algorithm.
+
+The data input files for SPORT simulation must contain only ASCII 1s and 0s to
+simulate the serial bit stream, and carriage returns (which are ignored).
+.44
+Host Interface Port  Registers
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+To simulate the the host interface port of the ADSP-2111 and ADSP-21msp50,
+you can examine and alter the contents of registers directly. You simulate
+host writes by writing to a data register (HDR). You can also associate
+data files with the HIP to simulate host data transfers. See @46[HIP Files].
+
+By convention, the simulator calls a data transfer from the host a write
+and a transfer to the host a read; in other words, "write" and "read"
+are from the host's perspective.
+
+The top portion of the HIP Register Window is divided into three fields:
+the Edit field, the 21xx field (representing either the ADSP-2111 or the
+ADSP-21msp50), and the Host field. The six HIP data registers (HDRs) appear
+in each of the three fields. You can enter either a data value or type
+CTRL_R (for read) in an HDR.
+@44[more]
+
+-- Typing a value in in the Host field simulates a write to the ADSP-21xx;
+   the HDR is changed and a write interrupt is generated.
+
+-- Typing a value in the 21xx field has the same effect as an immediate
+   data move to an HDR from the ADSP-21xx.
+
+-- Typing CTRL_R (control R) in the Host field simulates a Host read of
+   the HDR; the ADSP-21xx generates a read interrupt.
+
+-- Typing CTRL_R (control R) in the 21xx field simulates the effect of
+   the ADSP-21xx reading the HDR (the data is not transferred anywhere,
+   but the HDR's status changes).
+
+In the Edit field you can enter data values in HDRs without causing any
+interrupts or status changes. This field allows you to change an HDR value
+without the HIP status. You can also type CTRL_R (control R) in the Edit
+field, but this has no effect unless the HDR is associated with an input
+file. (See @46[HIP files].) @44[more]
+
+The middle portion of the HIP Register Window (under STATUS) monitors
+the HIP status registers (HSRs). Changes to the Host and 21xx fields in
+the top portion of the window are reflected by a change in the HSR values.
+The upper two bits of HSR7 are shown separately in the HIP_OVWRITE (bit 7)
+field and the HIP_RESET (bit 6) field, as well as in the value of HSR7
+itself. These bits control the HIP overwrite mode and software reset.
+
+@44[more]
+The bottom portion of the HIP Register Window is a table that shows the
+transfer status of each of the HDRs. You cannot directly alter any
+values in this table. The columns labeled 0 1 2 3 4 5 refer to the HDRs.
+An "e" indicates that the HDR is empty (has been read since the last
+update to this HDR). An "f" indicates that the HDR is full (has NOT
+been read since the last update to this HDR). The values in the row 
+labeled 2111 or msp50 indicate the status of transfers from the ADSP-21xx
+and the values in the HOST row indicate the status of transfers from the
+host.
+@44[first page]
+.46
+Host Port input/output files
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+ 
+You must explicitly assign a file to an HDR and open it before the HDR can read 
+or write to it. The input data file contains one hex value per line which will 
+be read into the assigned HDR. See also @44[HIP Registers].
+.47
+CODEC Control Registers       
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This window contains the analog interface registers and fields.
+These registers are all memory mapped. These registers may also be 
+modified in the @60[data memory window].
+The fields in the codec/powerdown window are defined as follows:
+
+Register       Contents
+
+CRECV 		Analog Receive (ADC) Data Register - dm(0x3fed)
+CTRAN 		Analog Transmit (DAC) Data Register-  dm(0x3fec)
+CRBUF 		Analog Receive Autobuffer Enable - dm(0x3fef) bit 0
+CTBUF 		Analog Transmit Autobuffer Enable - dm(0x3fef) bit 1
+CRIREG		Analog Receive Autobuffer I Register - dm(0x3fef) bits 4-6
+CTIREG		Analog Transmit Autobuffer I Register - dm(0x3fef) bits 9-11
+CRMREG		Analog Receive Autobuffer M Register - dm(0x3fef) bits 2-3
+CTMREG		Analog Transmit Autobuffer M Register - dm(0x3fef) bits 7-8
+@47[more]
+PUCR            Power Down Context Reset Enable Bit - dm(0x3fef) bit 12
+PDFORCE         Power Down Force Bit - dm(0x3fef) bit 13
+
+The following registers do NOT affect simulation operation in any way.
+They are for display purposes only in the simulator.
+
+XTALDELAY       4096 Cycle Delay Enable - dm(0x3f3f) bit 14
+XTALDIS         XTAL Pin Drive Enable - dm(0x3fef) bit 15
+
+TPS             Encoder ADC Preamp Select - dm(0x3fee) bit 0  
+TMS             Encode ADC Mux Select - dm(0x3fee) bit 1
+RG              Decoder (DAC) PGA gain select - dm(0x3fee) bits 2-4
+NPWDD           Analog Interface Power Down Digital - dm(0x3fee) bit 5
+NPWDA           Analog Interface Power Down Analog - dm(0x3fee) bit 6
+ADCBYP          ADC High Pass Filter Bypass  - dm(0x3fee) bit 7
+DACBYP          DAC High Pass Filter Bypass  - dm(0x3fee) bit 7
+
+@47[first page]
+
+.49
+Boot Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+Boot memory (Boot) is 24 bits wide and spans from address 0 through 0x3fff.
+The display contains the memory map access for the location, address, data (in
+whatever format), and symbol name, if any. BM can be displayed in hexadecimal,
+decimal , and disassembled formats. 
+
+The following @185[special keys] are active for BM windows:
+        @64[<Ctrl-D>] Dump Memory
+        @65[<Ctrl-M>] Load Memory
+        @66[<Ctrl-F>] Fill Memory
+        @67[<Ctrl-G>] Go To Memory
+        @18[<Ctrl-T>] Toggles Window Display Format
+.56
+Program Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+Program memory (PM) is 24 bits wide and spans from address 0 through 0x3fff.
+The display contains the memory map access for the location, address, data (in
+whatever format), and symbol name, if any. PM can be displayed in hexadecimal,
+decimal, 1.15 fixed point, and disassembled formats. 
+
+In the disassembled format window, highlighted access fields indicate the
+presence of a @177[Multi-Breakpoint]/@176[Breakpoint].  Also note that in the instruction
+pointed to by the @32[Program Counter] (PC), the address field is highlighted.  When
+an address field is highlighted in the "normal" highlighted color, this 
+indicates the instruction will really be executed. 
+
+The following @185[special keys] are active for PM windows:
+        @64[<Ctrl-D>] Dump Memory
+        @65[<Ctrl-M>] Load Memory
+        @66[<Ctrl-F>] Fill Memory
+        @67[<Ctrl-G>] Go To Memory
+        @18[<Ctrl-T>] Toggles Window Display Format
+        @69[<Ctrl-O>] Toggles Tracking
+.60
+Data Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+Data memory (DM) is 16 bits wide and spans from address 0 through 0x3fff.
+The display contains the memory map access for the location, address, data (in
+whatever format), and symbol name, if any.  DM can be displayed in hexadecimal,
+and 1.15 fixed point formats.
+
+The following @185[special keys] are active for DM windows:
+
+        @64[<Ctrl-D>] Dump Memory
+        @65[<Ctrl-M>] Load Memory
+        @66[<Ctrl-F>] Fill Memory
+        @67[<Ctrl-G>] Go To Memory
+        @18[<Ctrl-T>] Toggles Window Display Format
+        @69[<Ctrl-O>] Toggles Tracking
+
+.64
+Dump Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to dump memory data to a file.  You are prompted for an
+address range and file name.  The data is dumped in a format consistent with
+the format of the window from which it is invoked, ie: hexadecimal, floating
+point etc..  
+
+This function is valid only when applied from a memory, @56[PM] or @60[DM]
+or @49[BM], window.  
+It is normally invoked from the @1[menu bar] or via the @185[<Ctrl-D>] key.
+
+See also @65[Load Memory].
+.65
+Load Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to load memory data from a file.  You are prompted for
+an address range and file name.  The data is loaded, in a format consistent
+with the format of the window from which it is invoked, ie: hexadecimal,
+1.15 fixed point ,or decimal, starting at the address supplied.  
+
+This function is valid only when applied from a memory, @56[PM] or @60[DM]
+or @49[BM], window. 
+It is normally invoked from the @1[menu bar] or via the @185[<Ctrl-M>] key.
+
+See also @64[Dump Memory].
+.66
+Fill Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to fill memory with a given pattern.  You are prompted 
+for an address range and pattern which will be replicated in memory.  The
+pattern is entered in hexadecimal format.  
+
+This function is valid only when applied from a memory, @56[PM] or @60[DM]
+or @49[BM], window.
+It is normally invoked from the @1[menu bar] or via the @185[<Ctrl-F>] key.
+.67
+Go To Address
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to go to a particular memory address.  You are prompted 
+for an address.  After entering the address, the window is moved to the given
+address.  
+
+This function is valid only when applied from a memory, @56[PM] or @60[DM]
+or @49[BM], window. 
+It is normally invoked from the @1[menu bar] or via the @185[<Ctrl-G>] key.
+.69
+Toggle Tracking
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will toggle the tracking of the current program or data memory
+window.  
+
+When tracking is enabled in the program memory window, the window
+displays the neighborhood of program memory locations that include the
+location specified by the program counter(PC).  Thus, if you are
+stepping through your program, the program memory window jumps to the
+line that is going to be executed next.
+
+When tracking is enabled in the data memory window, the window jumps
+to the last data memory access.
+
+If tracking is on, "/T" is appended to the display format in the
+title bar of the memory window.
+
+This function is normally invoked from the @1[menu bar] or via the @185[<Ctrl-O>] key.
+
+.76
+Chip Reset 
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+A full chip reset (with boot) is invoked here. See the @84[Command Window].
+
+
+.78
+Color Display Attributes
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to alter the color attributes of the windowing system of
+the simulator.  A pop-up window is displayed with a list of window types and
+areas within those windows on the left hand side and the corresponding
+color attributes currently in effect.  Upon choosing the item for which a
+change in color is desired, another pop-up window is displayed which presents
+a pallette of colors.  The current color attributes for the item which was
+selected is enclosed by brackets ([]).  Upon choosing a new color selection,
+the original pop-up is redisplayed, showing the new color selections. 
+
+Selecting the "Accept" option will redisplay the screen with the new color 
+selections.  The "Cancel" option cancels any new color selections made.  The 
+"Reset" option resets all colors to the simulator defaults.
+
+This function is invoked from the @1[menu bar].  
+
+Note that color attributes are saved in window files, either upon @2[exiting] the
+simulator or manually saving the @106[window file].  
+.84
+Command Window
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Command Window is used to enter simulator commands. A command history of 20
+commands is kept and may be recalled and edited using the arrow keys or the 
+mouse. The format for the commands is as follows:
+
+Register Commands
+
+   Function                          Command Syntax
+
+   Set a register to a value         register = expression (ex. ax0=1)
+
+   Examine contents of register      ?register (ex. ?ax0)
+   (displayed in command output
+   window)
+
+   Undefine register                 UNDEFINE register (ex. UNDEFINE ax0)
+                                     U register (ex. U ax0)
+@84[more]
+Memory Commands
+
+    Set memory to value              FILL addr or range value 
+                                     (ex. FILL pm(1) 1234)
+                                     (ex. FILL pm(1),pm(10) 1234)
+                                     (ex. FILL pm(1)/10 1234)
+                                     (ex. FILL pm(1)< 'file')
+
+    Assemble value                   ASSEMBLE addr instruction 
+                                     A addr instruction
+                                     (ex. assemble pm(0) jump 10)
+                                     (ex. A pm(10) ax0=ar)
+
+   Examine contents of               ?addr (ex. ?dm(3) )
+   memory
+
+   Dump contents of                  DUMP addr or range [>'file']
+   memory                            D addr or range [>'file']
+                                     (ex. D dm[0]/0x100 >'d.dat')
+
+   Find value                        FIND range value
+                                     F range value
+                                     (ex. FIND dm(2),dm(0x100) 0xabcd)
+
+   Load executable file              LOAD 'file'
+                                     L 'file'
+
+@84[more]
+   Load rom image                    LOADROM 'file'
+                                     LR 'file'
+
+   Plot memory                       PLOT range increment
+                                     PL range increment
+                                     (ex. PL pm[0]/0x100 1)
+Break/Watch Commands
+
+    Set a breakpoint                 BREAK addr (ex. BREAK pm(10))
+                                     B addr (ex. B pm(10))
+
+    Delete a breakpoint              BD addr or number or all
+                                     (ex. BD pm(10)))
+                                     (ex. BD 1)
+                                     (ex. BD all)
+
+    Set a break expression           BE expression
+                                     (ex. BE ax0 == 2) NOTE == not =
+
+    Set a break change               BC expression
+                                     (ex. BC ax0)
+
+    Set a break range                BR range
+                                     (ex. BR pm[10],pm[20])
+
+    List breakpoints                 B
+    to command output window
+
+    Set a watchpoint                 W addr or range
+                                     (ex. W pm[10],pm[20])
+
+    Set a watch expression           WE expression
+                                     (ex. WE ax0 ==1) NOTE: ==
+
+    Delete watchpoint                WD number
+                                     (ex. WD 0)
+
+    List watchpoints                 W
+    to command output window
+
+@84[more]
+Execution Commands
+
+    Run                              GO
+                                     G
+
+    Run to an address                GO addr
+                                     G addr
+                                     (ex. GO pm[22])
+
+    Step                             STEP
+                                     S
+
+    Step 'N' times                   STEP number
+                                     S number
+                                     (ex. S 12)
+
+    Chip reset (boot if MMAP 0)      CHIPRESET
+                                     CR
+
+    Chip reset -- don't boot         RESETNOBOOT
+                                     RE
+
+    Execute a single instruction     EXECUTE instruction
+                                     EXE instruction
+                                     (ex. EXE ar = ay0 + 1)
+
+@84[more]
+Symbols and Alias Commands
+
+    Load a symbol file               LS 'file'
+                                     (ex. LS 'test')
+
+    Add a user defined symbol        ADDSYMBOL + 'symbol' addr
+                                     ASYM + 'symbol' addr
+                                     (ex. ADDSYMBOL + 'ggg' pm[3])
+
+    Set an alias                     ALIAS 'new name' 'command'
+                                     (ex. ALIAS 'my_reset' 'cr')
+
+    Delete an alias                  DELETE 'new name'
+                                     (ex. DELETE 'my_reset')
+
+    List alias to command            ALIAS
+    output window
+
+@84[more]
+File Related Commands
+
+    Open a port data file            OPENPORT addr < 'filename'
+    for reading                      OP addr < 'filename'
+                                     (ex. OP pm[12] < 'in.dat')
+    
+    Open a port data file            OPENPORT addr > 'filename'
+    for writing                      OP addr > 'filename'
+                                     (ex. OP pm[12] > 'in.dat')
+
+    Open a sport data file           OPENSPORT sport number < 'filename'
+    for reading                      OS sport number < 'filename'
+                                     (ex. OS 0 < 'in.dat')
+    
+    Open a sport data file           OPENSPORT sport number > 'filename'
+    for writing                      OS sport number > 'filename'
+                                     (ex. OS 1 > 'in.dat')
+
+    Open a HIP data file             HIPREAD hdr# > 'filename  (2111+2150)
+    for reading                      HIPR hdr# > 'filename  (2111+2150)
+                                     (ex. HIPR hdr1 >'myfile') -- the host reads
+    
+    Open a HIP data file             HIPWRITE hdr# <  'filename  (2111+2150)
+    for writing                      HIPW hdr# < 'filename  (2111+2150)
+                                     (ex. HIPW hdr1 <'myfile') -- the host writes to 21xx
+    
+    Open a HIP file for booting      HIPBOOT 'filename' (2111+2150)
+                                     HB < 'filename'
+@84[more]
+
+    Write a window file              WIN > 'filename'
+
+    Save state to file               STATE > 'filename'
+
+    Restore state from a file        STATE < 'filename'
+
+    Start writing to keystroke       KEYON 'filename'
+    file                             KO 'filename'
+
+    Stop writing to keystroke        KEYOFF
+    file                             KF
+
+    Read in a keystroke file         < 'filename'
+
+@84[more]
+Interrupt Commands
+
+    Specify periodic interrupt       INTERRUPT sig min [max] [OFFSET number]
+                                     I sig min [max] [OFFSET number]
+                                     (ex. I irq0 100.2 105.4 OFFSET 10)
+
+   Specify periodic flag input       INTERRUPT fi period [ONCE or RESET]
+                                     I fi period [ONCE or RESET]
+                                     (ex. I fi 10 ONCE)
+
+   Display settings for signal in    INTERRUPT sig
+   command output window             I sig
+                                     (ex. I irq2)
+   
+@84[more]
+   Display all signal settings       INTERRUPT ALL
+                                     I all
+
+   Display all active signal         INTERRUPT ACTIVE
+   settings                          I ACTIVE
+
+   Specify periodic hip read         HIPREAD hdr# min [max] [OFFSET number]
+   interrupt                         HIPR hdr# min [max] [OFFSET number]
+                                     (ex. HIPR hdr4 12.5 13.7 OFFSET 10)
+
+   Specify periodic hip write        HIPWRITE hdr# min [max] [OFFSET number]
+   interrupt                         HIPW hdr# min [max] [OFFSET number]
+                                     (ex. HIPW hdr4 12.5 13.7 OFFSET 10)
+
+
+@84[more]
+SPORT Commands
+
+    Connect frame syncs              CONNECT rfs# tfs#
+				     (ex. CONNECT rfs0 tfs1)
+
+    Disconnect frame syncs           CONNECT rfs# tfs# OPEN
+                                     (ex. CONNECT rfs0 tfs1 open)
+
+    Disconnect all frame syncs       CONNECT ALL OPEN
+
+    Display frame sync               CONNECT
+    connections in command output
+    window
+    
+    Connect rfs to tfs and dt to     LOOPBACK sport number
+    dr in a sport (loop back)        LB sport number
+                                     (ex. LB 0)
+
+    Disconnect a loop back           LOOPBACK sport number OPEN
+                                     LB sport number OPEN
+                                     (ex. LB 0 OPEN)
+
+    Disconnect all loop backs        LOOPBACK ALL OPEN
+                                     LB ALL OPEN
+
+@84[more]
+Profile Commands
+
+    Add a profile range              PROFILEADD range# addr or range
+                                     PA range# addr or range
+                                     (ex. PA 0 pm[0],pm[10])
+
+    Delete a profile range           PROFILEDELETE range #
+                                     PD range #
+                                     (ex. PD 0)
+
+    Clear all profile ranges         PROFILECLEAR
+                                     PC
+
+    Reset profile data               PROFILERESET
+                                     PR
+
+@84[more]
+Miscellaneous Commands            
+
+    Quit the simulator without       QUIT 
+    saving a window file             Q (this will prompt: are you sure ?)
+
+    Exit the simulator saving        EXIT
+    a window file                    E (this will prompt: are you sure ?)
+
+    Shell out to DOS                 SHELL
+                                     SH
+
+    Shell a command to DOS           SHELL 'command'
+                                     SH 'command'
+                                     (ex. SH 'dir/w')
+
+    Get simulator version            VERSION
+				     VS
+@84[first page]
+.87
+Trace Program Execution
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Trace Window captures a history of processor activity during program 
+execution. By default the last 10 instructions which were executed are saved.
+To change the the size of the trace history, type CTRL_R (control R). A pop up
+window will appear asking for the number of frames (instructions) to trace.
+
+There are four fields of information displayed for each instruction shown in the
+window. From left to right, these are: program counter value, disassembled code
+(instructions) with address labels, data memory read or write performed, and
+program memory read or write performed.
+.91
+2100 Cache Memory
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Cache memory window display the current contents of the on-chip
+memory cache. The first field displays the internal cache address. The 
+next field displays the 2100 pm memory location which has been
+copied to the cache. The last field displays the disassembled memory
+at that location
+
+.92
+Command Output Window
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Command Output Window displays information requested from the @84[Command Window].
+Data is displayed in the same format as selected in the Command Window.
+The following data is displayed in the Command Output Window:
+
+   Command                          Output
+
+   ALIAS                            List of current aliases
+
+   BREAK,B                          List of current breakpoints
+
+   CHIPRESET,CR                     Boot Cycles, Boot Page
+   BF=1
+
+   Connect                          List of tied frame syncs
+
+   D range                          Contents of memory 
+
+@92[more]
+   HIPREAD hdr#                     min,max,offset for interrupt
+   HIPR hdr#
+
+   HIPWRITE hdr#                    min,max,offset for interrupt
+   HIPW hdr#
+
+   INTERRUPT signal                 min,max,offset for interrupt
+   I signal
+
+   I ALL                            min,max,offset for all signals
+
+   I ACTIVE                         min,max,offset for all active
+                                    signals
+
+   WATCHPOINT                       list of all active watchpoints
+   W
+
+   ? expression                     The value of the expression.
+
+Also, the evaluated current watchpoints are displayed in this
+window when running.
+
+@92[first page]
+   
+   
+   
+.93
+Profile Program Execution
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+An execution profile shows the time spent executing instructions in different
+ranges in a program. It allows you to analyze the execution patterns of your 
+program. To create a profile, you open the profile window, select parameters, 
+enable profiling, then run your program. You can examine results in the profile 
+window.
+
+The simulator counts the cycles spent executing instructions in each address
+range you identify. The simulator automatically counts cycles for all other
+ranges, during IDLE instructions and during multicycle instructions (e.g.,
+memory accesses with wait states). These counts are shown in the profile
+window next to other, idle , and extra cycle.
+
+Execution time for each range is expressed as a percentage of time period.
+The profile covers three periods: short-term, long-term, and cumulative.
+The short-term and long-term periods are relative to the current cycle; that
+is , a time period of 10 cycles is always the most recent 10 cycles. You choose
+@93[more]
+the number of instruction (execution) cycles in the short-term and long-term
+time periods. The cumulative time period is always the total number of 
+execution cycles since you last reset the profile.
+
+The long-term count specifies a number of short-term periods. 
+
+The rightmost column of the profile window, labeled Cum, shows the percent of
+the cumulative time spent in each range since you last reset the accumulated
+data. The columns labeled STA (short-term average) and LTA (long-term average)
+list the percent of the short-term and long-term time periods, respectively,
+for each range. The area under the labels 0%%, 25%%, 50%%, 75%%, and 100%%
+displays a simple histogram of the information in the Cum, STA, and LTA columns.
+@93[first page]
+
+.97
+Expression Evaluation
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Expressions Window can display and evaluate expressions while you perform
+other debugging actions. The simulator updates an expression's value as it
+changes. The ?+ command (See the @84[Command Window])
+adds an expression and the ?- command deletes an expression. You can also type
+an expression directly into the command window. CTRL_D (control D) will delete
+an expression.
+
+Values displayed in the Expressions Window are always displayed as 32 bit sign-
+extended numbers.
+
+.99
+Break Expression Evaluation
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The simulator can break on the state of an expression. It can break either when
+an expression is true or whenever the value of an expression changes. For 
+example, you may wish to break execution whenever the expression "AX0 > 3" is 
+true. As long as AX0 contains a value less than or equal to three, the 
+expression is false. When AX0 becomes loaded with a larger value, however, 
+the expression becomes true.
+
+Enter this from the break expression window as "ax0 > 3".
+Enter this from the @84[Command Window] as "be ax0 > 3".
+
+NOTE: The "C" language style == is used for comparatives. A single "=" is 
+evaluated as an assignment operator by the expression parser and will result 
+with an invalid expression.
+.101
+Defaults Window
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The defaults menu allows you to select beep or echo, and allows you to set the
+screen update rate and the keystroke file time-out value. The screen update rate
+is the number of cycles which are to be executed before updating the screen
+when running. The run timeout is the number of seconds to run (when running
+from a keystroke file) before stopping. 
+
+The defaults are saved as part of the window file. See the quit and exit
+commands in the @84[Command Window].
+
+.103
+Load Executable File
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to load executable files into the simulator.  The 
+executable file typically defines @56[Program Memory] (PM) , @49[Boot Memory], or
+@60[Data Memory] (DM) and symbolic information.
+
+Note that executable files are loaded independently of any memory map
+attributes.  
+
+This function is invoked from the @1[menu bar].
+.105
+Load Window File
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to load window files into the simulator.  The window file
+defines video mode, color attributes, floating point attributes, window types,
+window sizes and screen positions.  
+
+When a window file is loaded, the current window attributes are replaced with 
+those from the file.
+
+This function is invoked from the @1[menu bar].  
+
+See also @106[Save Window File].
+.106
+Save Window File
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to create a window file for the simulator.  The window 
+file defines video mode, color attributes, floating point attributes, window
+types, window sizes and screen positions.  
+
+When a window file is created, the current window attributes are stored in the
+filename supplied by the user.  Creating a window file does not affect the
+current window attributes in any manner.
+
+This function is invoked from the @1[menu bar].  
+
+See also @105[load window file].
+.107
+Start Keystroke Recording
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to create a keystroke file for the simulator.  A
+keystroke file is essentially a log of both keystrokes and mouse actions that 
+can be created and then "played back".  It is typically used when a set of
+actions is, or will be, done repeatedly.  When a keystroke file is created, all
+subsequent keystrokes and mouse actions are recorded to the given file, until
+the @108[Stop Keystroke Recording] command is issued.  Later, the file can be "played
+back" with the @109[Playback Keystroke File] command.
+
+There is something to watch out for when using keystroke files.  Because of the
+mechanism used to replay keystroke files, the use of commands that wait for any
+keystroke, the run command for example, should be avoided.  What will happen in
+this case is that immediately after the run command is issued from the file, 
+the next keystroke from the file would be read; the simulator will interpret
+this as signal to stop running and would halt the simulation.
+
+This function is invoked from the @1[menu bar].  
+
+See also @108[Stop Keystroke Recording] and @109[Playback Keystroke File].
+.108
+Stop Keystroke Recording
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to stop recording keystrokes to a keystroke file.  The 
+keystroke file is closed and no further keystrokes or mouse actions are logged
+to the file.
+
+There is something to watch out for when using keystroke files.  Because of the
+mechanism used to replay keystroke files, the use of commands that wait for any
+keystroke, the run command for example, should be avoided.  What will happen in
+this case is that immediately after the run command is issued from the file, 
+the next keystroke from the file would be read; the simulator will interpret
+this as signal to stop running and would halt the simulation.
+
+This function is invoked from the @1[menu bar].  
+
+See also @107[Start Keystroke Recording] and @109[Playback Keystroke File].
+.109
+Playback Keystroke File
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to "playback" a keystroke file.  All keystrokes and mouse
+actions are repeated in exactly the same order in which the keystroke file was
+created.  
+
+There is something to watch out for when using keystroke files.  Because of the
+mechanism used to replay keystroke files, the use of commands that wait for any
+keystroke, the run command for example, should be avoided.  What will happen in
+this case is that immediately after the run command is issued from the file, 
+the next keystroke from the file would be read; the simulator will interpret
+this as signal to stop running and would halt the simulation.
+
+This function is invoked from the @1[menu bar].  
+
+See also @107[Start Keystroke Recording] and @108[Stop Keystroke Recording].
+.110
+Display File
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to display a text file.  When invoked, the user is 
+prompted for a filename.  The file is then loaded into the simulator and
+displayed.  
+
+This function is invoked from the @1[menu bar].  
+.111
+Operating System Shell
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to create an operating system shell.  
+
+For DOS platforms, the simulator is suspended and the user is transferred to
+an operating system shell.  Typing 'exit' from the shell will return the
+user to the simulator.
+
+For Unix platforms, an 'xterm' is spawned.
+
+This function is invoked from the @1[menu bar].  
+.112
+Operating System Shell Command
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to create an operating system shell and execute an
+OS command.  
+
+For DOS platforms, the simulator is suspended and the command is executed 
+in  the operating system shell.  When the command is complete, control
+transfers back to the simulator.
+
+For Unix platforms, an 'xterm' is spawned.
+
+This function is invoked from the @1[menu bar] or
+by using the SH 'command' command from the @84[Command Window].
+.113
+PC Stack
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of the Program Counter (PC) stack.  The PC stack is 14 bits
+wide and 16 locations deep. 
+The stack generates an overflow signal (PC_O) when the stack is
+overflowed and an empty signal (PC_E) when no locations in the stack are
+occupied.  PC_O and PC_E are stored in the @34[SSTAT] register.  
+.114
+Status Stack
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of the Status Stack.  The Status Stack is 7 locations deep
+for the 2100 and 2101. It is 9 locations deep for the 2111 and 12 locations 
+deep for the 2150. It contains the pushed contents of the imask, mstat, and
+sstat registers. See @34[Status registers] and @36[Interrupt Registers]
+.115
+Loop Counter Stack
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of the Loop Counter Stack.  The Loop Counter Stack is 4 
+locations deep and 14 bits wide.  The Loop Counter Stack is synchronized with
+the @116[Loop Address Stack].  They will always contain the same number of active
+locations.  The stack generates an overflow signal (LS_O) when the stack is
+overflowed and an empty signal (LS_E) when no locations in the stack are
+occupied.  LS_O and LS_E are stored in the @34[SSTAT] register.  
+
+See also the @116[Loop Address Stack] display.
+.116
+Loop Address Stack
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of the Loop Address Stack.  The Loop Address Stack is 4 
+locations deep and 18 bits wide.  Each entry in the stack contains a 14 bit
+loop termination address and a 4 bit loop termination code.
+
+           Bit        Description
+           0-13       Loop termination address
+           14-17      Loop termination code (See User's Manual)
+
+The Loop Address Stack is synchronized with the @115[Loop Counter Stack].  They will
+always contain the same number of active locations.  The stack generates an 
+overflow signal (LS_O) when the stack is overflowed and an empty signal (LS_E)
+when no locations in the stack are occupied.  LS_E and LS_O are stored in the
+@34[SSTAT] register.  
+
+See also the @115[Loop Counter Stack] display. 
+.117
+PM Symbol Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of all @56[Program Memory] (PM) symbols.  The symbols can be 
+displayed in either alphabetical or numeric order, according to the selection 
+from the @1[menu bar].  The display shows the symbolic name and the address of the
+symbol.  Symbols are loaded into the simulator via the 
+@103[Load Executable File]  and load symbols function. See the @84[Command Window].
+
+At present, only global and static symbols are recognized.
+
+See also @121[Delete Symbols] , @122[Data Memory (DM) Symbol Display] , 
+and @119[Boot Memory (BM) Symbol Display].   
+.119
+BM Symbol Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of all @49[Program Memory] (BM) symbols.  The symbols can be 
+displayed in either alphabetical or numeric order, according to the selection 
+from the @1[menu bar].  The display shows the symbolic name and the address of the
+symbol.  Symbols are loaded into the simulator via the 
+@103[Load Executable File]  and load symbols function. See the @84[Command Window].
+
+At present, only global and static symbols are recognized.
+
+See also @121[Delete Symbols] , @122[Data Memory (DM) Symbol Display] , 
+and @119[Boot Memory (BM) Symbol Display].   
+.121
+Delete Symbols
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function will delete all symbols from the simulator.
+
+See also @122[Data Memory (DM) Symbol Display] , @117[Program Memory Symbol Display]
+and @119[Boot Memory (BM) Symbol Display].   
+.122
+DM Symbol Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This is the display of all @60[Data Memory] (DM) symbols.  The symbols can be 
+displayed in either alphabetical or numeric order, according to the selection 
+from the @1[menu bar].  The display shows the symbolic name and the address of the
+symbol.  Symbols are loaded into the simulator via the 
+@103[Load Executable File]  and load symbols function.
+
+At present, only global and static symbols are recognized.
+
+See also @121[Delete Symbols] , @122[Data Memory (DM) Symbol Display] , 
+and @119[Boot Memory (BM) Symbol Display].   
+.124
+Step
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to single step the simulator.  A single step will take
+from 1 to 16 clock cycles, due to memory wait states etc..  The display is 
+automatically updated after each step.
+
+This function is normally invoked from the @1[menu bar] or via the @185[<F10>] key.
+
+See also the @125[Step 'n' Times] and @126[Run] commands.
+.125
+Step 'n' Times
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to execute 'n' single steps of the simulator.  A single
+step will take from 1 to 16 clock cycles, due to memory wait states etc..
+This function will halt upon reaching a breakpoint, or pressing any key.
+
+This function is normally invoked from the @1[menu bar] or via the @185[<Shift-F10>] key.
+When this function is activated a pop-up will appear requesting the number of
+steps to execute.
+
+See also the @124[Step] and @126[Run] commands.
+.126
+Run
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to begin continuous execution of the simulator.  The 
+simulator will continue executing until one of the following occur:
+
+             - An instruction at which a breakpoint is set was about to be
+                 executed (ie: PC = <breakpoint address>).
+
+             - A keystroke has been detected.  
+
+             - An error has been detected.
+
+The simulator will automatically update the display after approximately every
+1000 instruction cycles. (See the @101[defaults window])
+
+This function is normally invoked from the @1[menu bar] or via the @185[<F4>] key.
+
+See also the @125[Step 'n' Times] and @124[Step] commands.
+.128
+CBUG Index
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+                    @150[Assign]             @156[Locals]
+                    @158[Backtrace]          @135[Next]
+                    @140[Break]              @137[Next 'n' Times]
+                    @132[Continue]           @157[Params]
+                    @141[Delete]             @147[Print]
+                    @129[Display]            @131[Restart]
+                    @160[Down]               @154[Stack]
+                    @138[Finish]             @134[Step]
+                    @163[Globals]            @136[Step 'n' Times]
+                    @133[Go Until]           @159[Up]
+                    @142[List]               @151[Where Is]
+.129
+CBUG Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Display command creates a CBUG Display window which displays an
+expression and its value in  4 data formats. CBUG Display
+windows remain on-screen until deleted manually using the <Esc> key,
+and can be moved and re-sized like other emulator/simulator window.
+
+The expression is evaluated in the current scoping context, and if any
+expression components go out of context (by use of the @159[Up] and @160[Down]
+commands, or by program execution), an "out of context" message is
+displayed.
+
+Related CBUG "Data" menu choices are:
+        @147[Print]    - Evaluate and print an expression
+        @150[Assign]   - Alter the value of a variable
+        @129[Display]  - Monitor expression values
+        @151[Where Is] - Describe where a symbol is stored
+.131
+CBUG Restart
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Restart command resets the emulator/simulator and starts executing code.
+This is analogous to issuing the emulator/simulator Chip Reset and @126[Run] commandsAfter the Restart command, CBUG runs until it is stopped. Use the Restart command when
+you want to simulate a reboot of your system.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.132
+CBUG Continue
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Continue command causes CBUG to resume execution from the current
+program counter. After the Continue command, CBUG runs until it is
+stopped.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.133
+CBUG Go Until
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Go-Until command sets a self-deleting CBUG @140[breakpoint] at a
+specified location and resumes execution as in the Continue command.
+The break location is set in a pop-up window. The Go-Until command
+will run until it hits the breakpoint or is otherwise stopped.
+
+The Go-Until command can be used for shortcut breakpoint operations
+such as running to a function (specify a function name), finishing a
+loop (specify a line number outside a loop), executing one iteration
+of a loop (specify a line number inside a loop), etc.
+ 
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.134
+CBUG Step
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Step command executes one line of C source code. Function calls
+are followed; if a function call is executed, the called function is
+entered.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.135
+CBUG Next
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Next command is similar to Step, but the entire expression
+(including all function calls and assignments) is executed without
+stopping. Execution stops when control reaches the next line of code
+in the same function which was executing when the Next command was
+given; function calls are not followed.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.136
+CBUG Step 'n' Times
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Step 'n' Times command steps the execution of your program as in
+the Step command, but does so n times. A pop-up window is presented
+for entering the count. If a breakpoint is encountered (or execution
+is otherwise stopped), Step 'n' Times stops before taking all n steps.
+Function calls are followed.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.137
+CBUG Next 'n' Times
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Next 'n' Times executes code as in Next, but it does so n times. A
+pop-up window is presented for entering the repeat count. If a
+@140[breakpoint] is encountered (or execution is otherwise stopped), Next
+'n' Times stops before taking all n steps. Function calls are not
+followed.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.138
+CBUG Finish
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Finish command resumes execution and runs until the
+currently-scoped function returns or execution is stopped. If the @159[Up]
+and @160[Down] commands have changed the scoping context, the Finish command
+finishes from the changed context. The Finish command is useful when
+you want to complete the execution of a function and return to its
+parent.
+
+Related CBUG "Execution" menu choices are:
+        @134[Step]           - Execute one C line; follow calls
+        @135[Next]           - Execute one C line; do not follow calls
+        @136[Step 'n' Times] - Step that many times
+        @137[Next 'n' Times] - Next that many times
+        @132[Continue]       - Resume execution (await stop or halt)
+        @133[Go Until]       - Continue and stop at a specified line number
+        @138[Finish]         - Continue until back in calling function
+        @131[Restart]        - Execute a @76[chip reset] and Continue
+.140
+CBUG Break
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Break command sets a breakpoint. A line number is specified in a
+pop-up window. 
+
+Breakpoints are preserved whenever the program is @131[restarted].
+
+You can set a breakpoint on a single line by double-clicking on that
+line.
+
+Related CBUG "Breaks" menu choices are:
+        @140[Break]     - Add a CBUG breakpoint
+        @141[Delete]    - Remove a CBUG breakpoint
+        @142[List]      - Describe CBUG breakpoints and their status
+.141
+CBUG Delete
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Delete command deletes a breakpoint. A pop-up window requests the
+breakpoint number(s) or "all" to delete from the breakpoint list.
+
+You can delete a breakpoint on a single line by double-clicking on
+that line.
+
+Related CBUG "Breaks" menu choices are:
+        @140[Break]     - Add a CBUG breakpoint
+        @141[Delete]    - Remove a CBUG breakpoint
+        @142[List]      - Describe CBUG breakpoints and their status
+.142
+CBUG List
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The List command lists all CBUG breakpoints, showing their number,
+and where in the program they are. 
+
+Related CBUG "Breaks" menu choices are:
+        @140[Break]     - Add a CBUG breakpoint
+        @141[Delete]    - Remove a CBUG breakpoint
+        @142[List]      - Describe CBUG breakpoints and their status
+.147
+CBUG Print
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+Data values (and assignments) may be printed to the Status
+display using the Print command. 
+
+Related CBUG "Data" menu choices are:
+        @147[Print]    - Evaluate and print a data value
+        @150[Assign]   - Alter the value of a variable
+        @129[Display]  - Monitor data values
+        @151[Where Is] - Describe where a symbol is stored
+.150
+CBUG Assign
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Assign command sets the value of variables. The assignment
+statement is entered in a pop-up window. 
+
+The variables are evaluated with respect to the current scoping
+context. You may not use Assign to evaluate a function call.
+
+Type compatibility and bounds checking are not performed by CBUG
+variable assignments. Display expressions are updated after each
+command assigned.
+
+Related CBUG "Data" menu choices are:
+        @147[Print]    - Evaluate and print an expression
+        @150[Assign]   - Alter the value of a variable
+        @129[Display]  - Monitor expression values
+        @151[Where Is] - Describe where a symbol is stored
+.151
+CBUG Where Is
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Whereis command provides information about the storage allocation
+for a symbol. The symbol is entered into a pop-up window. The Whereis
+command displays the register number, frame pointer offset, or
+absolute address and memory space (PM vs. DM) of the symbol's data,
+as appropriate, in the Status display.
+
+Related CBUG "Data" menu choices are:
+        @147[Print]    - Evaluate and print an data value
+        @150[Assign]   - Alter the value of a variable
+        @129[Display]  - Monitor data values 
+        @151[Where Is] - Describe where a symbol is stored
+.152
+CBUG What Is
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Whatis command displays the data type of an expression or
+variable. The expression or variable is entered into a pop-up window.
+Results are displayed in the Status display.
+
+Related CBUG "Data" menu choices are:
+        @147[Print]    - Evaluate and print an expression
+        @150[Assign]   - Alter the value of a variable
+        @129[Display]  - Monitor expression values
+        @151[Where Is] - Describe where a symbol is stored
+.154
+CBUG Stack
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Stack command presents C run-time stack information relative to
+the current scoping context in the Status display, namely:
+
+        - nesting level, function name, source file and line number
+        - current, parent, and child frame pointers (as appropriate)
+        - parameter names and values
+
+Refer to the ADSP-2100 Family C Programmer's Manual for detailed
+information about the C run-time stack model.
+
+Related CBUG "Context" menu choices are:
+        @154[Stack]     - Report info on the current stack frame
+        @158[Backtrace] - Report the function call tree
+        @159[Up]        - Change the scoping context up one level
+        @160[Down]      - Change the scoping context down one level
+.156
+CBUG Locals
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Locals command lists all local variables of the currently scoped
+function.
+
+Related CBUG "Symbols" menu choices are:
+        @162[Functions] - List functions
+        @163[Globals]   - List global variables
+        @156[Locals]    - List local variables
+        @157[Params]    - List function parameters
+.157
+CBUG Params
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Params command lists all parameter variables of the currently
+scoped function.
+
+Related CBUG "Symbols" menu choices are:
+        @162[Functions] - List functions
+        @163[Globals]   - List global variables
+        @156[Locals]    - List local variables
+        @157[Params]    - List function parameters
+.158
+CBUG Backtrace
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Backtrace command displays the calling sequence in the Status
+display, showing how the program reached the currently-executing
+function. The sequence starts with main() and ends with the function
+that is in the current execution context. Each entry in the report
+shows the function's
+
+        - frame level
+        - program counter value (return address)
+        - function name 
+        - parameter names and values
+        - source file name 
+        - line number	
+
+Related CBUG "Context" menu choices are:
+        @154[Stack]     - Report info on the current stack frame
+        @158[Backtrace] - Report the function call tree
+        @159[Up]        - Change the scoping context up one level
+        @160[Down]      - Change the scoping context down one level
+.159
+CBUG Up
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Up command temporarily changes the current scoping context up one
+level (to the function's parent) without changing the execution
+context. The Source and CBUG Display windows are updated to reflect
+the new scoping context.
+
+The Up command reports to the Status display the new scoping context,
+and its associated program counter value (if not at the start of the
+function), function name and its parameter list and values, and its
+source file name and line number.
+
+Related CBUG "Context" menu choices are:
+        @154[Stack]     - Report info on the current stack frame
+        @158[Backtrace] - Report the function call tree
+        @159[Up]        - Change the scoping context up one level
+        @160[Down]      - Change the scoping context down one level
+.160
+CBUG Down
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Down command temporarily changes the current scoping context down
+one level without changing the execution context. The Source and CBUG
+Display windows are updated to reflect the new scoping context.
+
+The Down command reports to the Status display the new scoping
+context, and its associated program counter value (if not at the start
+of the function), function name and its parameter list and values, and
+its source file name and line number.
+
+Related CBUG "Context" menu choices are:
+        @154[Stack]     - Report info on the current stack frame
+        @158[Backtrace] - Report the function call tree
+        @159[Up]        - Change the scoping context up one level
+        @160[Down]      - Change the scoping context down one level
+.162
+CBUG Functions
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Functions command lists the names and data types of all debuggable
+functions.
+
+Related CBUG "Symbols" menu choices are:
+        @162[Functions] - List functions
+        @163[Globals]   - List global variables
+        @156[Locals]    - List local variables
+        @157[Params]    - List function parameters
+.163
+CBUG Globals
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The Globals command lists the names and data types of all non-local
+variables.
+
+Related CBUG "Symbols" menu choices are:
+        @162[Functions] - List functions
+        @163[Globals]   - List global variables
+        @156[Locals]    - List local variables
+        @157[Params]    - List function parameters
+.171
+Port Close
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to close a memory port.  A pop-up window is displayed
+showing the status of all opened ports.  A port can then be selected with the
+mouse or arrow keys.  The selected port is then closed.  When a port is closed,
+it's file buffers are flushed and the file(s) itself is closed.  Attempted
+accesses to closed port results in an error.  
+
+This function is invoked from the @1[menu bar].  
+
+See also the @172[Port Open] and @173[Port Display] commands.
+.172
+Port Open
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to open a memory port.  A memory port simulates input
+and/or output to a device by reading and/or writing data to/from data files.  
+When a port is opened, information is supplied via a pop-up window that will
+characterize the functionality of the port.  The port address is entered in hex.
+
+The memory type and address of the port are required.  Note that the memory map
+must declare the particular memory location to be a port.  The file format is
+specified.  This describes how the simulator will read/write data to/from the
+file.  For ports that read from the file, the Autowrap attribute specifies
+whether or not the file pointer will be wrapped back to the top of the file
+when an End-Of-File (EOF) condition is detected.  This attribute is typically
+enabled for periodic data.  The next 2 attributes Input and Output Filename
+identify the file(s) associated with the port.  If given an input file, any
+reads from the memory location will be read from the file.  If given an output
+file, any writes to the memory location will be written to the file.  If both
+an input file and output file are given, the location can be read from and
+written to.  
+@172[more]
+
+This function is invoked from the @1[menu bar].  
+
+See also the @171[Port Close] and @173[Port Display] commands.
+.173
+Port Display
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to display a list of all opened ports and attributes
+associated with each port.  No changes may be made to any port via this 
+function.  
+
+This function is invoked from the @1[menu bar].  
+
+See also the @172[Port Open] and @171[Port Close] commands.
+.176
+Set/Clear Breakpoint
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to set or clear a breakpoint.  A breakpoint is an address
+at which the simulator will stop executing immediately prior to the execution 
+of the specified address.  
+
+This function is only available when employed from the context of a Program
+Memory (PM) window in the disassembled format.  Breakpoints are displayed in
+the disassembled PM window.  They are indicated by the highlighting of the 
+access field at the breakpoint address.  Use of this function will toggle the
+state of a breakpoint at the address at which the cursor is present; if a
+breakpoint is not set at that address, one will be established; if a breakpoint
+is set at that address, it will be cleared.
+
+Note that once a breakpoint is "hit", it remains active. 
+
+This function is normally invoked from the @1[menu bar] or via the @185[<F9>] key.
+
+See also @177[Set/Clear Multi-Breakpoint], @178[Display Bkpt] and @179[Clear All Breakpoints].  
+.177
+Set/Clear Multi-Breakpoint
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to set or clear a multi-breakpoint.  A multi-breakpoint
+is an address at which the simulator will stop executing immediately prior to
+the 'nth' execution of the specified address.  When invoked, the user is
+prompted for the value of 'n'.  
+
+This function is only available when employed from the context of a Program
+Memory (PM) window in the disassembled format.  Breakpoints are displayed in
+the disassembled PM window.  They are indicated by the highlighting of the 
+access field at the breakpoint address.  Use of this function will toggle the
+state of a breakpoint at the address at which the cursor is present; if a
+breakpoint is not set at that address, one will be established; if a breakpoint
+is set at that address, it will be cleared.
+
+Note that once a multi-breakpoint is "hit", it remains active and it's count
+is reset to 'n'.
+
+This function is normally invoked from the @1[menu bar] or via the @185[<F9>] key.
+
+See also @176[Set/Clear Breakpoint], @178[Display Bkpt] and @179[Clear All Breakpoints].  
+.178
+Display Breakpoints
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to display breakpoints.  When invoked, this function 
+produces a pop-up window on the display.  The display contains the occurrence
+and the address (or symbol name if one exists at the address).  The occurrence
+specifies when a simulation would be halted relative to the execution of this
+instruction.  A value of "1" indicates execution would be halted immediately
+prior to the first time this instruction would be executed.  A value of "2" 
+indicated execution would be halted immediately prior to the second time this
+instruction would be executed.  Multi-Breakpoints typically have numbers other
+than "1" in this field, whereas a "regular" breakpoint always has a "1" in this
+field.  
+
+This function is invoked from the @1[menu bar].
+
+See also @177[Set/Clear Multi-Breakpoint], @176[Set/Clear Breakpoint] and
+@179[Clear All Breakpoints].  
+.179
+Clear All Breakpoints
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This function is used to clear all breakpoints in the simulator.
+
+This function is invoked from the @1[menu bar].
+
+See also @177[Set/Clear Multi-Breakpoint], @176[Set/Clear Breakpoint] and
+@178[Display Breakpoints].  
+.182
+Interrupt Timing
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The interrupt timing window allows you to set the interrupt rate for the
+IRQ pins. The min and max fields allow you to enter a range. Basically,
+if min does not equal max, the interrupt will occur at random intervals
+between min and max. The offset field allows you to start the interrupts
+some number of cycles in the future.
+
+
+.183
+Help on Help
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The on-line help system of the ADSP-2100 Family Simulators is designed to be 
+easy to understand and simple to use.  The help system is also context 
+sensitive.  This means that the help system is sensitive to what you are doing,
+or trying to do. 
+
+You can get help at any time by pressing the <F1> key.  The screen will then
+display a help message pertinent to whatever window you were working in.  Once
+the help system is entered, you can choose to remain in the help system or
+return to the simulator.  
+
+At the top of the screen, and in the ASCII of many help screens, are words that 
+are, typically, in a different color.  These are called keywords and provide an
+easy and efficient means of moving throughout the help system.  Selecting these
+keywords, either by clicking on them with the mouse or using the arrow keys to 
+choose one and pressing <ENTER>, will switch from the current help screen to 
+a help screen containing help on your chosen keyword.  Pressing the <ESC> key 
+anywhere in the help system will always return you to the simulator.  
+
+Note: The arrow keys will scroll the help screens where appropriate.
+.184
+Help Index
+@20[About Simulator...]
+@23[Alternate Computational ]
+@99[Break Expressions ]
+@49[Boot Memory Display]
+@119[BM Symbol Display]
+@191[Command Menu Option]
+@7[Center Windows]
+@76[Chip Reset]
+@179[Clear All Breakpoints]
+@47[CODEC Registers]
+@78[Color Display Attributes]
+@84[Commands ]
+@92[Command Output]
+@23[Computational Registers]
+@29[Control Registers]
+@38[Counter Empty Register ]
+@21[DAG Registers]
+@60[Data Memory]
+@101[Defaults ]
+@121[Delete Symbols]
+@178[Display Breakpoints]
+@110[Display File]
+@193[Display Menu Option]
+@122[DM Symbol Display]
+@64[Dump Memory]
+@192[Execution Menu Option]
+@2[Exit]
+@97[Expressions ]
+@187[File Menu Option]
+@66[Fill Memory]
+@186[General Info]
+@67[Go To Address]
+@184[Help Index]
+@183[Help on Help]
+@46[HIP Files ]
+@44[HIP Registers ]
+@36[Interrupt Control Registers]
+@182[Interrupt Timing ]
+@8[List Windows]
+@103[Load Executable File]
+@35[Flag Registers ]
+@65[Load Memory]
+@105[Load Window File]
+@116[Loop Address Stack]
+@115[Loop Counter Stack]
+@17[Make Window Narrower]
+@15[Make Window Shorter]
+@14[Make Window Taller]
+@16[Make Window Wider]
+@91[Memory Cache 2100 ]
+@189[Memory Menu Option]
+@1[Menu Bar]
+@194[Misc Menu Option]
+@10[Move Window Down]
+@11[Move Window Left]
+@12[Move Window Right]
+@9[Move Window Up]
+@5[Next Window]
+@111[Operating System Shell]
+@112[Operating System Shell Command]
+@113[PC Stack]
+@109[Playback Keystroke File]
+@117[PM Symbol Display]
+@171[Port Close]
+@173[Port Display]
+@172[Port Open]
+@93[Profile ]
+@32[Program Control Registers]
+@56[Program Memory]
+@37[PX Register]
+@195[Quit Menu Option]
+@3[Quit]
+@6[Redraw Display]
+@188[Register Menu Option]
+@126[Run]
+@106[Save Window File]
+@176[Set/Clear Breakpoint]
+@177[Set/Clear Multi-Breakpoint]
+@185[Special Keys]
+@43[SPORT Files ]
+@39[SPORT Registers ]
+@190[Stacks Menu Option]
+@107[Start Keystroke Recording]
+@34[Status Registers]
+@114[Status Stack]
+@125[Step 'n' Times]
+@124[Step]
+@108[Stop Keystroke Recording]
+@87[Trace ]
+@18[Toggle Window Format]
+@19[Video Mode]
+
+
+.185
+Special Keys
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+The following are a list of special keys and their associated functions:
+
+   Execution Functions
+        @126[<F4>]        Run
+        @124[<F10>]       Step
+        @125[<Shift F10>] Step 'n' Times
+        @176[<F9>]        Set/Clear Breakpoint
+        @177[<Shift-F9>]  Set/Clear Multi-Breakpoint
+
+   Memory Functions
+        @64[<Ctrl-D>] Dump Memory
+        @66[<Ctrl-F>] Fill Memory
+        @67[<Ctrl-G>] Go To Memory
+        @65[<Ctrl-M>] Load Memory
+ 
+   Window Sizing Functions
+         @14[<Shift-F5>] Grow Window Vertically
+         @15[<Shift-F6>] Shrink Window Vertically
+         @16[<Shift-F7>] Grow Window Horizontally
+         @17[<Shift-F8>] Shrink Window Horizontally
+
+   Window Movement Functions
+         @9[<F5>] Move Window Up
+         @10[<F6>] Move Window Down
+         @11[<F7>] Move Window Left
+         @12[<F8>] Move Window Right
+
+   Window Selection Functions
+        @4[<ESC>]    Close Current Window
+        @5[<F2>]     Go To Next Window
+        @1[<F3>]     Go To Menu Bar
+        @8[<Ctrl-L>] List/Go To Specific Window
+
+   Window Display Functions
+        @183[<F1>]     Help
+        @18[<Ctrl-T>] Toggles Window Display Format
+
+.186
+General Info
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This program performs a software simulation of the Analog Devices ADSP-2100 
+family Point Digital Signal Processor.  
+
+This program is controlled by a menu driven, graphical user interface.  Items
+are selected and controlled from the keyboard and/or mouse.  A menu bar at the
+top of the screen provides access to windows and functions.  In addition, some
+functions can be invoked directly from the keyboard whenever a special key is
+pressed.  
+
+An online help system provides help at any time simply by pressing the <F1> key
+or by selecting the Help option from the menu bar.  
+
+Further information available:
+
+                        - @183[Help on Help System]
+                        - @1[Menu Bar]
+                        - @185[Special Keys]
+                        - @184[Index]
+               
+.187
+File Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls file related functions of the simulator.  Choices within
+this submenu are:
+
+   @103[Load Executable File]      - Loads an executable file into the simulator
+   @105[Load Window File]          - Loads a window file into the simulator
+   @106[Save Window File]          - Saves current configuration into a file
+   @110[Display File]              - Displays a text file
+   @109[Playback Keystroke File]   - Replays a keystroke file
+   @107[Start Keystroke Recording] - Records keystrokes to a file
+   @108[Stop Keystroke Recording]  - Stops recording keystrokes to a file
+   @111[Operating System Shell]    - Shells to the Operating System
+   @112[Operating System Shell Command]    - Shells to the OS with a command
+   @43[Sport files]               - Open sport files (not avail 2100)
+   @46[HIP files]                 - Open HIP files (2111&2150)
+
+.188
+Register Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls register related functions of the simulator.  Choices 
+within this submenu are:
+
+   @23[Computational]           - Displays computational registers
+   @23[Alternate Computational] - Displays Alternate computational registers
+   @21[DAG Computational]       - Displays DAG registers 
+   @32[Program Control]         - Displays program control registers
+   @36[Interrupt]               - Displays interrupt control registers
+   @34[Status]                  - Displays Status registers
+   @29[Control]                 - Displays Control registers
+   @35[Flag]                    - Displays Flag registers
+   @37[PX Register]             - Displays PX Register 
+   @38[CE Register]             - Displays CE Register 
+   @39[Sport 0  Register]       - Displays Sport 0  Register 
+   @39[Sport 1  Register]       - Displays Sport 1  Register 
+   @44[HIP Register]            - Displays HIP  Registers
+   @47[CODEC Register]          - Displays CODEC/Powerdown  Registers
+.189
+Memory Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls register related functions of the simulator.  Choices
+within this submenu are:
+
+      @60[Data Memory Display]       - Displays Data Memory (DM)
+         @122[Symbol Display (Alpha)] - Displays DM symbols alphabetically
+         @122[Symbol Display (Num)]   - Displays DM symbols in numerical order
+      @56[Program Memory Display]    - Displays Program Memory (PM)
+         @117[Symbol Display (Alpha)] - Displays PM symbols alphabetically
+         @117[Symbol Display (Num)]   - Displays PM symbols in numerical order
+      @49[Boot Memory Display]       - Displays Boot Memory (BM)
+         @119[Symbol Display (Alpha)] - Displays BM symbols alphabetically
+         @119[Symbol Display (Num)]   - Displays BM symbols in numerical order
+         @121[Delete Symbols]         - Deletes all symbols
+      @173[Port Display]              - Displays port status
+         @172[Open]                   - Opens a port
+         @171[Close]                  - Closes a port
+      @64[Dump Memory]               - Dumps memory to a file
+      @65[Load Memory]               - Loads memory from a file
+      @66[Fill Memory]               - Fills memory with a pattern
+      @67[Go To Address]             - Changes window to a particular address
+.190
+Stacks Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls stack related functions of the simulator.  Choices within
+this submenu are:
+
+               @116[Loop Address] - Displays the loop address stack
+               @115[Loop Counter] - Displays the loop counter stack
+               @113[PC]           - Displays the PC stack
+               @114[Status]       - Displays the status stack
+.191
+Command Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls the command line related functions of the simulator.  Choices within
+this submenu are:
+
+                  @84[Command  Line]   - Command line editor 
+                  @92[Command  Output] - Command Output
+.192
+Execution Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls execution related functions of the simulator.  Choices
+within this submenu are:
+
+   @126[Run]                        - Runs a simulation
+   @124[Step]                       - Executes a single step
+   @125[Step 'n' Times]             - Executes 'n' single steps
+   @178[Display Breakpoints]        - Displays all breakpoints
+   @176[Set/Clear Breakpoint]       - Sets/Clears a breakpoint
+   @177[Set/Clear Multi-Breakpoint] - Sets/Clears a multi-breakpoint
+   @179[Clear All Breakpoints]      - Clears all breakpoints
+.193
+Display Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls display related functions of the simulator.  Choices
+within this submenu are:
+
+ @78[Color Attributes]     - Display/Modify the color attributes of the display
+ @19[Video Mode]           - Display/Modify the video mode of the display
+ @18[Toggle Window Format] - Toggles window display format
+ @8[List Windows]         - List all open windows
+ @7[Center Windows]       - Centers all open windows
+ @6[Redraw Display]       - Redraws the display
+.194
+Misc Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls miscellaneous functions of the simulator.  Choices within
+this submenu are:
+
+              @76[Chip Reset]         - Simulates a chip reset signal
+              @101[Defaults Menu]       - Defaults Menu
+              @182[Interrupt Timing]   - Interrupt Timing
+              @97[Expressions ]       - Display expressions
+              @99[Break Expressions ] - Display break expressions
+              @87[Trace ]             - Display Trace
+              @93[Profile  ]          - Display Profile
+              @20[About Simulator...] - Simulator Information
+.195
+Quit Menu Option
+     @0[Return to Simulator]         @-1[Previous Screen]         @186[General Info]
+
+This submenu controls functions related to exiting simulator.  Choices within
+this submenu are:
+
+                @2[Exit] - Exit simulator and update window file
+                @3[Quit] - Exit simulator without updating window file
+.End

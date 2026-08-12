@@ -1,0 +1,23 @@
+File DSI_DIV.DSP:
+        IF GE JUMP ddivq_neg;
+        JUMP ddivq_pos;
+        IF GE JUMP ddivq_pos;
+        JUMP ddivq_neg;
+ddivq_pos:  CNTR=32;
+ddivq_neg:  CNTR=32;
+File LIB_DIV.DSP:
+                        DIVQ AX0;DIVQ AX0;DIVQ AX0;
+                        DIVQ AX0;DIVQ AX0;DIVQ AX0;
+                        DIVQ AX0;DIVQ AX0;DIVQ AX0;
+                        DIVQ AX0;DIVQ AX0;DIVQ AX0;
+                        DIVQ AX0;DIVQ AX0;DIVQ AX0;
+File UMODSI3.DSP:
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+File UDIVSI3.DSP:
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;
+                DIVQ AR;DIVQ AR;DIVQ AR;DIVQ AR;

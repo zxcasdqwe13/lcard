@@ -1,0 +1,44 @@
+{
+{determine zero crossing from - to +}
+SetLowTtlChannel(AR,0);
+
+GetPm(AX0,PrevFiltValAddr);
+AY0=MR1;
+AR=PASS AX0;
+IF GT JUMP endcomp;
+AR=PASS AY0;
+IF LE JUMP endcomp;
+{if we have crossed zero --- set ttl0 to 1}
+SetHighTtlChannel(SR,0);
+
+{Set counter}
+GetPm(AR,DelayTTLAddr);
+PutPm(AR,CounterAddr);
+SetHighTtlChannel(SR,1);
+endcomp:
+
+{write filtered value as old one}
+PutPm(MR1,PrevFiltValAddr);
+
+{TTl1 is high during delay}
+checkcounter: {check trigger}
+GetPm(AR,CounterAddr);
+AR=AR-1;
+PutPm(AR,CounterAddr);
+IF NE JUMP enddelaycounter;
+{if delay is over, set high ttl2 and low ttl2}
+SetLowTtlChannel(SR,1);
+SetHighTtlChannel(SR,2);
+{and start duration counter}
+GetPm(AR,DurationTTLAddr);
+PutPm(AR,CounterDurAddr);
+enddelaycounter:
+
+
+PulceLengthCounter:
+GetPm(AR,CounterDurAddr);
+AR=AR-1;
+PutPm(AR,CounterDurAddr);
+IF NE JUMP endpulcelengthcounter;
+SetLowTtlChannel(SR,2);
+endpulcelengthcounter:					}

@@ -1,0 +1,7 @@
+.SYSTEM example;
+.ADSP2101;
+.MMAP0;                              {Boot at reset}
+.SEG/ROM/BOOT=0                 boot_mem[2048];
+.SEG/PM/RAM/ABS=0/CODE/DATA     int_pm[2048];
+.SEG/DM/RAM/ABS=14336/DATA       int_dm[1024];
+.ENDSYS;

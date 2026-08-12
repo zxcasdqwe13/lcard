@@ -1,0 +1,196 @@
+//
+// Filename: resolve_E440.ldf
+//
+// These are assembler generated LDF RESOLVE commands
+// for -legacy .var directives with /ABS qualifiers.
+//
+
+
+// .var PROGARAMBASEADDRESSVAL in .\VAR.H, line 16, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( PROGARAMBASEADDRESSVAL, 0x30 )
+
+// .var READY in .\VAR.H, line 20, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( READY, 0x31 )
+
+// .var TMODE1 in .\VAR.H, line 24, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( TMODE1, 0x32 )
+
+// .var TMODE2 in .\VAR.H, line 28, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( TMODE2, 0x33 )
+
+// .var TESTLOADVAR in .\VAR.H, line 32, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( TESTLOADVAR, 0x34 )
+
+// .var COMMAND in .\VAR.H, line 36, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( COMMAND, 0x35 )
+
+// .var IMASKVALUE in .\VAR.H, line 40, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( IMASKVALUE, 0x36 )
+
+// .var SCLK0DIV in .\VAR.H, line 44, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SCLK0DIV, 0x37 )
+
+// .var DACRATE in .\VAR.H, line 48, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACRATE, 0x38 )
+
+// .var ADCRATE in .\VAR.H, line 52, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCRATE, 0x39 )
+
+// .var ADCENABLE in .\VAR.H, line 56, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCENABLE, 0x3a )
+
+// .var ADCFIFOBASEADDRESS in .\VAR.H, line 60, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCFIFOBASEADDRESS, 0x3b )
+
+// .var CURADCFIFOLENGTH in .\VAR.H, line 64, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CURADCFIFOLENGTH, 0x3c )
+
+// .var ADCFIFOLENGTHOVER2 in .\VAR.H, line 68, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCFIFOLENGTHOVER2, 0x3d )
+
+// .var ADCFIFOLENGTH in .\VAR.H, line 72, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCFIFOLENGTH, 0x3e )
+
+// .var ISCORRECTIONENABLED in .\VAR.H, line 76, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ISCORRECTIONENABLED, 0x3f )
+
+// .var ADCSAMPLE in .\VAR.H, line 84, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCSAMPLE, 0x41 )
+
+// .var ADCSAMPLECHANNEL in .\VAR.H, line 88, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCSAMPLECHANNEL, 0x42 )
+
+// .var INPUTMODE in .\VAR.H, line 93, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( INPUTMODE, 0x43 )
+
+// .var SYNCHROADFLAG in .\VAR.H, line 99, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADFLAG, 0x45 )
+
+// .var SYNCHROADCHANNEL in .\VAR.H, line 102, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADCHANNEL, 0x46 )
+
+// .var SYNCHROADPOROG in .\VAR.H, line 105, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADPOROG, 0x47 )
+
+// .var SYNCHROADMODE in .\VAR.H, line 108, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADMODE, 0x48 )
+
+// .var SYNCHROADTYPE in .\VAR.H, line 111, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADTYPE, 0x49 )
+
+// .var SYNCHROADSTEP in .\VAR.H, line 114, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SYNCHROADSTEP, 0x4a )
+
+// .var CONTROLTABLELENGHT in .\VAR.H, line 119, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CONTROLTABLELENGHT, 0x4b )
+
+// .var FIRSTSAMPLEDELAY in .\VAR.H, line 123, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( FIRSTSAMPLEDELAY, 0x4c )
+
+// .var INTERKADRDELAY in .\VAR.H, line 127, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( INTERKADRDELAY, 0x4d )
+
+// .var ADCCHANNEL in .\VAR.H, line 131, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ADCCHANNEL, 0x4e )
+
+// .var CORRECTABLEADCCHANNEL in .\VAR.H, line 135, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CORRECTABLEADCCHANNEL, 0x4f )
+
+// .var DACSAMPLE in .\VAR.H, line 139, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACSAMPLE, 0x50 )
+
+// .var DACENABLE in .\VAR.H, line 143, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACENABLE, 0x51 )
+
+// .var DACFIFOBASEADDRESS in .\VAR.H, line 147, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACFIFOBASEADDRESS, 0x52 )
+
+// .var CURDACFIFOLENGTH in .\VAR.H, line 151, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CURDACFIFOLENGTH, 0x54 )
+
+// .var DACFIFOLENGTHOVER2 in .\VAR.H, line 155, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACFIFOLENGTHOVER2, 0x53 )
+
+// .var DACFIFOLENGTH in .\VAR.H, line 159, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DACFIFOLENGTH, 0x55 )
+
+// .var ENABLEFLASH in .\VAR.H, line 163, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ENABLEFLASH, 0x56 )
+
+// .var FLASHADDRESS in .\VAR.H, line 165, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( FLASHADDRESS, 0x57 )
+
+// .var FLASHDATA in .\VAR.H, line 167, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( FLASHDATA, 0x58 )
+
+// .var ENABLETTLOUT in .\VAR.H, line 172, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ENABLETTLOUT, 0x59 )
+
+// .var TTLOUT in .\VAR.H, line 175, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( TTLOUT, 0x5a )
+
+// .var TTLIN in .\VAR.H, line 178, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( TTLIN, 0x5b )
+
+// .var SCALEFACTOR in .\VAR.H, line 183, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( SCALEFACTOR, 0x60 )
+
+// .var ZEROOFFSET in .\VAR.H, line 187, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( ZEROOFFSET, 0x64 )
+
+// .var CONTROLTABLE in .\VAR.H, line 191, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CONTROLTABLE, 0x80 )
+
+// .var CALIBRATIONARRAY in .\VAR.H, line 209, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( CALIBRATIONARRAY, 0x100 )
+
+// .var DSPINFOSTRUCT in .\VAR.H, line 211, section 'INT_PM_USER', section index 3
+//
+	RESOLVE( DSPINFOSTRUCT, 0x200 )
+

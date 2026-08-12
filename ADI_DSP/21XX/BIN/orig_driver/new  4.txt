@@ -1,0 +1,114 @@
+
+	
+ch1processor:
+TOPPCSTACK=L6; TOPPCSTACK=M6; TOPPCSTACK=I6; 
+TOPPCSTACK=L7; TOPPCSTACK=M7; TOPPCSTACK=I7; TOPPCSTACK=I4;
+TOPPCSTACK=M3; TOPPCSTACK=I3; TOPPCSTACK=AX0; 
+
+
+
+DM(I3,M3)=MR1;
+
+{Calculate base addr for taps array and put to I3}
+M3=-2*nTaps; MODIFY (I3,M3); M3=2;
+I6=FirCoefAddr; M6=1; L6=64;
+{I7=^res; M7=0x1; L7=%res;}
+
+
+{
+        FIR Transversal Filter Subroutine
+
+        Calling Parameters
+                I3 --> Oldest input data value in delay line
+               
+                I7 --> Beginning of filter coefficient table
+                L6 = Filter length (N)
+                M1,M6 = 1
+                CNTR = Filter length - 1 (N-1)
+
+        Return Values
+                MR1 = Sum of products (rounded and saturated)
+                I6 --> Oldest input data value in delay line
+                I1 --> Beginning of filter coefficient table
+
+        Altered Registers
+                MX0,MY0,MR
+
+        Computation Time
+                N - 1 + 5 + 2 cycles
+
+        All coefficients and data values are assumed to be in 1.15 format.
+}
+
+CNTR=nTaps-1; 
+
+fir:    MR=0, MX0=DM(I3,M3), MY0=PM(I6,M6);
+       DO sop UNTIL CE;
+sop:    MR=MR+MX0*MY0(SS), MX0=DM(I3,M3), MY0=PM(I6,M6);
+        MR=MR+MX0*MY0(RND);
+        IF MV SAT MR;
+
+
+
+comparator:
+
+
+
+
+
+AX0=TOPPCSTACK; I3=TOPPCSTACK; M3=TOPPCSTACK; I4=TOPPCSTACK; I7=TOPPCSTACK; M7=TOPPCSTACK; L7=TOPPCSTACK; I6=TOPPCSTACK; M6=TOPPCSTACK; L6=TOPPCSTACK;
+
+	NOP;
+	RTS;
+	
+	
+		{цап, управляемый опросом ацп}
+DACSampl:
+
+{ а работа ЦАП разрешена?}
+GetPm(AR, DacEnableAddr); NONE = PASS AR;
+IF NE JUMP exit_Dac_Sample_cmd2_exit; { никакой выдачи на ЦАП - просто выйдем}
+
+{ SPORT0 - disable, SPORT1 - disable, SPORT1 - FI, FO, IRQ0, IRQ1, SCLK1}
+AR = 0x0;
+DM(Sys_Ctrl_Reg) = AR;{ 0x3FFF - System Control Register }
+
+{ запрещаем автобуфферизацию SPORT0 и отключаем CLOCKOUT}
+AR = 0x4000; DM(Sport0_Autobuf_Ctrl) = AR;
+
+{ установим максимальную частоту вывода отсчетов на ЦАП (125 кГц)}
+AR = 31;
+DM(Sport0_Rfsdiv) = AR; { 0x3FF4 - Receive Frame Sync Divide Modulus }
+
+{ SPORT0 - enable, SPORT1 - disable, SPORT1 - FI, FO, IRQ0, IRQ1, SCLK1}
+AR = 0x1000; { 0001 0000 0000 0000 }
+DM(Sys_Ctrl_Reg) = AR; { 0x3FFF - System Control Register }
+
+{ сбросим флажок завершения однократной выдачи отсчета на ЦАП}
+SB = 0x0;
+{ очистим запросы, кроме IRQE(команды) и IRQ2 (АЦП)}
+IFC = 0x6F; NOP;
+
+{ получим однократный отсчет для вывода на ЦАП}
+{AR = 0x1E0;}
+AR = DM(I3,M3);
+AR = SETBIT 12 OF AR;
+PutPm(AR, DacSampleAddr);
+GetPm(AR, DacSampleAddr); TX0 = AR;
+
+{ временно запретим все прерывания}
+DIS INTS;
+{ дополнительно размаскируем прерывания SPORT0 Transmit(ЦАП)}
+GetPm(AR, ImaskValueAddr);
+AR = SETBIT 6 OF AR;{ бит прерывания SPORT0 Transmit}
+PutPm(AR, ImaskValueAddr);
+IMASK = AR; NOP;
+{ разрешим все размаскированные прерывания}
+ENA INTS;
+
+{ спокойно выходим из функции}
+exit_Dac_Sample_cmd2_exit:
+NOP;
+RTS;
+	
+		
