@@ -17,7 +17,7 @@ Addr = {};
 % ---- Количество элементов КИХ-фильтра -----
 NTaps = 64;     Addr.NTapsAdrdr = BaseAddr + 0x4B;
 % ---- Усиление ЦАП -----
-DACAmp = 0xFFFF;     Addr.DACAmpAddr = BaseAddr + 0x4C;
+DACAmp = 0;     Addr.DACAmpAddr = BaseAddr + 0x4C;
 % DACRate= 0xFFFF;       Addr.DACRateAddr = BaseAddr + 0x38;
 % ---- Сдвиг КИХ фильтрации -----
 % по умолчанию - сдвиг на -1 дает последний отсчет АЦП
@@ -27,15 +27,15 @@ ProcSwitch = 1; Addr.ProcSwitchAddr = BaseAddr + 0x4E;
 % ---- Шаг децимации -----
 % шаг без децимации для одного канала 0xFFFF=-1, шаг для двух каналов
 % каналов 0xFFFE=-2, 
-DecimUser=10;    
+DecimUser=20;    
  Decim = 0x10000-DecimUser;   
    Addr.DecimAddr = BaseAddr + 0x4F;
 % ---- % Массив новых коэффициентов FIR фильтра 1 -----
 % FirCoef1(:,1) = ((65280:(65280+63)))';  %0xff00 + ii
-% FirCoef1(:,1) = zeros(64,1); FirCoef1(1,1) = 0x8000;
-% f=fopen('test1.dat'); ma=fscanf(f,'%x\n'); fclose(f); FirCoef1(:,1) = ma(1:64);
-ma=fi(sin([0:63]*2*pi/8).*hann(64)',1,16,15)/2;
-FirCoef1(:,1) = sscanf(ma.hex,'%x\n');
+FirCoef1(:,1) = zeros(64,1); FirCoef1(1,1) = 0x8000;
+f=fopen('test1.dat'); ma=fscanf(f,'%x\n'); fclose(f); FirCoef1(:,1) = ma(1:64);
+% ma=fi(sin([0:63]*2*pi/32).*hann(64)',1,16,15)/2;
+% FirCoef1(:,1) = sscanf(ma.hex,'%x\n');
 
 Addr.FirCoef1Addr = 0x300;
 % ---- % Массив новых коэффициентов IIR фильтра -----
@@ -57,7 +57,7 @@ NChannels = 2;
 % ---- Калибровка -----
 IsCorrectionEnabled = false;
 % ---- Таблица каналов -----
-ControlTable = [[0 3]]+2*64+0*32;
+ControlTable = [[0 3]]+1*64+0*32;
 
 % Функция записи данных в память программ
 % write_PM_varible(Значение, Адрес)
@@ -346,8 +346,6 @@ ioReq(2).TimeOut=WaitTime;
 
 %%%%%%%
 buffer_count = 256*1024;
-%dataInt16 = int16(ones(1,buffer_count));
-%Buffer = clib.array.MyCppLib.Short(dataInt16);
 Buffer_1 = clib.array.MyCppLib.Short(buffer_count);
 Buffer_2 = clib.array.MyCppLib.Short(buffer_count);
 
@@ -367,14 +365,7 @@ clib.MyCppLib.SetOverlapped(ioReq(2), ov_2, false, false);
 
 
 %fileID = fopen('myfile.bin','ab');
-% h = animatedline('Color', 'b', 'LineWidth', 2);
-% window_width = 100;
-% h.MaximumNumPoints = window_width;
-% grid on;
-% xlim([0 window_width]);
-% y_min = 0;
-% y_max = 300;
-% ylim([y_min y_max]);
+
 total_points = 0;
 
 % figure('WindowStyle','docked');
@@ -453,7 +444,7 @@ for ii=1:Nloop
     if ~isempty(get(gcf, 'CurrentCharacter'))
         break;
     end
-    sgtitle(num2str(ii));
+    sgtitle(['cycle #' num2str(ii)  "Press any key to stop"]);
 
     % if (status==0)
     %     clib.MyCppLib.MyResetEvent(ioReq(1))
