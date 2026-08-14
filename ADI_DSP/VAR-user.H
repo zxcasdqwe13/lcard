@@ -42,9 +42,5 @@
 .var/SEG=INT_PM_USER/ABS=IirBCoefAddr/PM/RAM IirBCoef[8];
 .INIT IirBCoef: 0, 0, 0, 0, 0, 0, 0, 0;
 
-{циклический буфер в области данных для истории отсчётов цап DacHistoryAddr = 0x3FD0}
-.VAR/SEG=INT_DM_USER/ABS=DacHistoryAddr/DM/RAM/CIRC DacHistoryCIRC[8];
-.INIT DacHistoryCIRC: 0, 1, 0, 0, 0, 0, 0, 0;
-
-.var/SEG=INT_PM_USER/ABS=DacHistoryCurrentHdAddr/PM/RAM DacHistoryCurrentHd;
-.init DacHistoryCurrentHd: M(DacHistoryAddr);
+.var/SEG=INT_PM_USER/ABS=N2TapsAddr/PM/RAM N2Taps;
+.init N2Taps: M(8);

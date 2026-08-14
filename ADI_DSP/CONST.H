@@ -86,8 +86,8 @@
 .const	ShiftAddr	`			=VariableBaseAddress + 0x4D; {delay in taps for FIR proc}
 .const	ProcSwitchAddr			=VariableBaseAddress + 0x4E; {procedure Flag after FIR proc}
 .const	DecimAddr				=VariableBaseAddress + 0x4F; {Decimation coefficient}
-.const  DacHistoryCurrentHdAddr			=VariableBaseAddress + 0x42;
-{ диапазон адресов от 0x35 до 0x80 - свободен								}
+.const  N2TapsAddr	    		=VariableBaseAddress + 0x42; {Taps to use in IIR}
+						
 
 .const	ControlTableAddr				=	0x80;		{ массив на 128 слов	}
 .const	CalibrationArrayAddr			=	0x100;	{ массив на 256 слов	}
@@ -95,7 +95,6 @@
 .const  FirCoefAddr1					    =	0x300;
 .const  FirCoefAddr2					    =	0x380;
 .const  IirBCoefAddr					    =	0x3c0;  {FirCoefAddr2 + 64 отсчёта}
-.const  DacHistoryAddr					    =	0x3FD0;
 
 
 

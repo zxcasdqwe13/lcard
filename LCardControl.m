@@ -10,12 +10,13 @@
 % Version 0.4 - EA
 %
 clear all
-close all
+% close all
 % 
 BaseAddr = 0x30;
 Addr = {};
 % ---- Количество элементов КИХ-фильтра -----
 NTaps = 64;     Addr.NTapsAdrdr = BaseAddr + 0x4B;
+N2Taps=8;       Addr.N2TapsAdrdr = BaseAddr + 0x42;
 % ---- Усиление ЦАП -----
 DACAmp = 0;     Addr.DACAmpAddr = BaseAddr + 0x4C;
 % DACRate= 0xFFFF;       Addr.DACRateAddr = BaseAddr + 0x38;
@@ -34,12 +35,20 @@ DecimUser=20;
 % FirCoef1(:,1) = ((65280:(65280+63)))';  %0xff00 + ii
 % FirCoef1(:,1) = zeros(64,1); FirCoef1(1,1) = 0x8000;
 % f=fopen('fir64.dat'); ma=fscanf(f,'%x\n'); fclose(f); FirCoef1(:,1) = ma;
-ma=fi(sin([0:63]*2*pi/32).*hann(64)',1,16,15)/2;
+% ma=fi(sin([0:63]*2*pi/32).*hann(64)',1,16,15)/2;
+% FirCoef1(:,1) = sscanf(ma.hex,'%x\n');
+
+ma=fi(zeros(1,64));
+ma(1:5)=fi([0 1 -1 1 -1]/5);
 FirCoef1(:,1) = sscanf(ma.hex,'%x\n');
+ma1=fi(zeros(1,8));
+ma1(1:4)=fi([0 0 -1/2 1/2]/5);
+IirCoef1(:,1) = sscanf(ma1.hex,'%x\n');
+
 
 Addr.FirCoef1Addr = 0x300;
 % ---- % Массив новых коэффициентов IIR фильтра -----
-IirCoef1(:,1) = [1; 2; 1; 1; 8; 1; 1]*0;  % 7 шт
+% IirCoef1(:,1) = [1; 2; 1; 1; 8; 1; 1]*0;  % 7 шт
 Addr.IirCoef1Addr = 0x3c0;
 %
 %%% -- Настройки АЦП -- %%%
@@ -111,7 +120,7 @@ end
 % Загружаем LBIOS из файла
 %if e440_interface.LOAD_MODULE('C:\Program Files (x86)\LCard\LGRAPH\E440.bio') %  биос штатный
 %if e440_interface.LOAD_MODULE('C:\Users\lab21_3\Documents\MATLAB\ADI_DSP\E440.bio') %  биос модифицированный
-if (e440_interface.LOAD_MODULE('E440.bio')) % биос модифицирванный с БИХ
+if (e440_interface.LOAD_MODULE('ADI_DSP\E440.bio')) % биос модифицирванный с БИХ
     disp('Bios загружен из файла')
 else
     check_error(false);
@@ -157,6 +166,8 @@ disp('Параметры фильтрации:');
 % Устанавливаем количество элементов КИХ-фильтра
 write_PM_varible(NTaps, Addr.NTapsAdrdr);
 fprintf('NTaps: %d\n', read_PM_varible(Addr.NTapsAdrdr))
+write_PM_varible(N2Taps, Addr.NTapsAdrdr);
+fprintf('NTaps: %d\n', read_PM_varible(Addr.N2TapsAdrdr))
 % Устанавливаем усиление ЦАП
 write_PM_varible(DACAmp, Addr.DACAmpAddr);
 fprintf('DACAmp: %d\n', read_PM_varible(Addr.DACAmpAddr))
