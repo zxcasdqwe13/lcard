@@ -111,7 +111,7 @@ end
 % Загружаем LBIOS из файла
 %if e440_interface.LOAD_MODULE('C:\Program Files (x86)\LCard\LGRAPH\E440.bio') %  биос штатный
 %if e440_interface.LOAD_MODULE('C:\Users\lab21_3\Documents\MATLAB\ADI_DSP\E440.bio') %  биос модифицированный
-if (e440_interface.LOAD_MODULE('E440.bio')) % биос модифицирванный с БИХ
+if (e440_interface.LOAD_MODULE('ADI_DSP\E440.bio')) % биос модифицирванный с БИХ
     disp('Bios загружен из файла')
 else
     check_error(false);
