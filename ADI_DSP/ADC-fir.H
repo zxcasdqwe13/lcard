@@ -80,12 +80,6 @@ IF MV SAT MR;
 
 
 
-{ Финальное  накопление с округлением (RND) и проверкой насыщения }
-MR = MR - MX0 * MY0(RND);
-IF MV SAT MR;
-
-
-
 AX0=TOPPCSTACK; 
 I3=TOPPCSTACK; M3=TOPPCSTACK;
 I1=TOPPCSTACK; M1=TOPPCSTACK; 
