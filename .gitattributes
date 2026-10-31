@@ -1,0 +1,10 @@
+# Firmware and vendor binaries: never normalise or merge as text.
+*.BIO -text -diff
+*.bio -text -diff
+*.EXE -text -diff
+*.exe -text -diff
+*.DLL -text -diff
+*.dll -text -diff
+*.LIB -text -diff
+*.lib -text -diff
+*.a   -text -diff

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e440"
+version = "0.1.0"
+description = "Python control and acquisition for the LCard E14-440 (ADSP-2181 LBIOS)"
+requires-python = ">=3.9"
+authors = [{ name = "ADI_DSP project" }]
+dependencies = []
+
+[project.optional-dependencies]
+numpy = ["numpy"]
+plot = ["numpy", "matplotlib"]
+
+[project.scripts]
+e440 = "e440.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+e440 = ["py.typed"]

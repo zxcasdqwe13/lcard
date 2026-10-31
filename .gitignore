@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Python run artifacts
+python/data/
+python/out/
+*.npy
+*.npz
+
+# DOS build intermediates (GoDsp.bat cleans these up; keep them out of git)
+ADI_DSP/*.obj
+ADI_DSP/*.OBJ
+ADI_DSP/*.cde
+ADI_DSP/*.CDE
+ADI_DSP/*.int
+ADI_DSP/*.INT
+ADI_DSP/*.bak
+ADI_DSP/*.BAK
+ADI_DSP/*.sym
+ADI_DSP/*.SYM
+ADI_DSP/e440.exe
+ADI_DSP/inttable.exe
+
+# Local vendor SDK, archives and scratch copies (see AGENTS.md)
+stuffs/
+ADI_DSP/.kilo/worktrees/
+ADI_DSP/.kilo/agent-manager.json
