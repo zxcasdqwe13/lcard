@@ -90,6 +90,10 @@ class MockDeviceTests(unittest.TestCase):
         self.assertNotEqual(list(even[:16]), list(odd[:16]))
         self.assertFalse(self.backend.adc_running)
 
+    def test_dac_lifecycle(self):
+        self.device.start_dac()
+        self.device.stop_dac()
+
     def test_dm_and_dac_history(self):
         self.device.write_dm_word(0x3FD0, 123)
         self.assertEqual(self.device.read_dm_word(0x3FD0), 123)

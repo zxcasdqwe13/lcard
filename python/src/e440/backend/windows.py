@@ -31,7 +31,7 @@ from ..structs import (
     SHORT,
     WORD,
 )
-from .base import Backend, BackendUnavailable, WAIT_TIMEOUT
+from .base import Backend, BackendUnavailable, WAIT_OBJECT_0, WAIT_TIMEOUT
 
 BOOL = ctypes.c_int32
 DWORD = ctypes.c_uint32

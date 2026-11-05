@@ -19,7 +19,6 @@ from .dsp import (
     FIR_COEF2_ADDR,
     FilterConfig,
     IIR_B_COEF_ADDR,
-    N2TAPS_ADDR,
     pm_pack,
     pm_unpack,
 )
@@ -59,7 +58,12 @@ class E440:
         for slot in slots:
             tried.append(slot)
             if backend.open(slot):
-                return cls(backend)
+                device = cls(backend)
+                # The L-Card driver requires GET_MODULE_DESCRIPTION before
+                # GET_ADC_PARS/GET_DAC_PARS (error 324 otherwise), so prime
+                # the cached description right after opening.
+                device._description = backend.get_module_description()
+                return device
 
         message, number = backend.get_last_error()
         backend.release()
@@ -230,6 +234,14 @@ class E440:
         self._check(self.backend.set_dac_params(params), "SET_DAC_PARS")
         return self.backend.get_dac_params()
 
+    def start_dac(self) -> None:
+        self._require_open()
+        self._check(self.backend.start_dac(), "START_DAC")
+
+    def stop_dac(self) -> None:
+        self._require_open()
+        self._check(self.backend.stop_dac(), "STOP_DAC")
+
     def dac_sample(self, value: int, channel: int = 0) -> None:
         self._require_open()
         self._check(self.backend.dac_sample(value, channel), "DAC_SAMPLE")
@@ -333,9 +345,11 @@ class E440:
         return list(values)  # type: ignore[arg-type]
 
     def read_dac_history(self, count: int = 8) -> list[int]:
-        """Read the DAC history buffer used by MATLAB's ``check_filt``."""
-        position = self.read_pm_word(N2TAPS_ADDR)
-        _ = position - DAC_HISTORY_BASE  # kept for parity with check_filt()
+        """Read the legacy ``0x3FD0`` DAC history used by ``check_filt``.
+
+        The current LBIOS keeps the IIR feedback history in the DAC FIFO
+        instead, so this is only meaningful for the older firmware image.
+        """
         return self.read_dm_array(DAC_HISTORY_BASE, count)
 
 

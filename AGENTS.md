@@ -21,11 +21,27 @@ python -m unittest discover -s python/tests -v
 python -m e440 selftest
 python -m e440 info --mock
 python -m e440 acquire --mock --blocks 2
+python -m e440 filter-test --mock --samples 20000 --analog-noise 50
+python -m e440 filter-capture --mock --blocks 2 --out /tmp/filter_capture.npz
 
 # Python: реальный модуль (Windows 10, 64-bit Python, драйвер L-Card)
-python -m e440 info --bios ADI_DSP/E440.bio
-python -m e440 acquire --blocks 10 --out data.npy
+# В VM использовать py -3, не python (см. раздел ниже).
+py -3 -m e440 info --bios ADI_DSP\E440.BIO --dll MyCppLib\Lusbapi64.dll
+py -3 -m e440 acquire --blocks 10 --out data.npy
 ```
+
+## Windows VM (реальный E14-440)
+
+- В VM `python` в PATH — заглушка Microsoft Store и молча ничего не печатает.
+  Использовать `py -3` (проверено: Python 3.14.10, 64-bit).
+- `numpy` в VM нет и интернета нет; модель БИХ работает на чистом Python.
+  `filter-capture` без numpy пишет CSV, `filter-test` читает CSV и считает
+  корреляцию/ошибку, но пропускает спектральную оценку полосы.
+- Проверенный запуск:
+  `py -3 -m e440 info --bios F:\ADI_DSP\E440.BIO --dll F:\MyCppLib\Lusbapi64.dll`
+- Сквозной сценарий: `powershell -ExecutionPolicy Bypass -File tools\run_filter_test.ps1`
+  (при необходимости `-StartDac`, `-ProcSwitch 2`).
+- Подробный handoff и текущие ограничения модели — в `NEXT_SESSION.md`.
 
 ## Карта проекта
 
@@ -37,6 +53,8 @@ python -m e440 acquire --blocks 10 --out data.npy
 - `ADI_DSP/ADC.H`, `ADC-fir.H`, `DAC.H`, `FIFO.H` — обработка потоков.
 - `ADI_DSP/GoDsp.bat` — эталонная последовательность сборки.
 - `LCardControl.m`, `main_ir.m` — эталон поведения MATLAB-обвязки.
+- `tools/run_filter_test.ps1` — сквозной запуск теста БИХ в Windows VM.
+- `NEXT_SESSION.md` — handoff для продолжения на Windows с устройством.
 - `python/src/e440/` — пакет (запускать с `PYTHONPATH=python/src`):
   - `dsp.py` — карта памяти, Q15, упаковка PM (кроссплатформенно);
   - `model.py` — dataclass-модели параметров;
@@ -45,7 +63,9 @@ python -m e440 acquire --blocks 10 --out data.npy
   - `backend/mock.py` — симулятор для Linux/тестов;
   - `device.py` — высокоуровневый `E440`;
   - `acquisition.py` — двойная буферизация асинхронного чтения;
-  - `cli.py` — `python -m e440 {info,acquire,selftest}`.
+  - `cli.py` — `python -m e440 {info,acquire,selftest,filter-test,filter-capture}`.
+  - `filter_model.py` — фиксированная Q15-модель `ch1processor` и метрики
+    сравнения; `filter_test.py` — замкнутый контур и анализ capture.
 - `stuffs/DLL/` — локальный SDK L-Card (заголовки `Lusbapi.h`,
   `LusbapiTypes.h`, исходники `E440.cpp`, `.def`, MinGW `.a`). В git не входит.
 

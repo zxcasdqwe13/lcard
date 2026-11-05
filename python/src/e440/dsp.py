@@ -83,9 +83,10 @@ FIR_TAPS = 64
 IIR_TAPS = 8
 CONTROL_TABLE_LENGTH = 128
 
-# DSP data-memory addresses used by check_filt()/read_dac_history().
+# Legacy dedicated DAC history (0x3FD0..0x3FD7) used by the first IIR version.
+# The current ADC-fir.H keeps the feedback history in the DAC FIFO instead;
+# the old DacHistoryCurrentHdAddr slot is now N2Taps (N2TAPS_ADDR above).
 DAC_HISTORY_BASE = 0x3FD0
-DAC_HISTORY_POS_ADDR = VARIABLE_BASE + 0x42
 
 # ---------------------------------------------------------------------------
 # Program-memory packing
