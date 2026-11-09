@@ -4,6 +4,16 @@ TOPPCSTACK=L6; TOPPCSTACK=M6; TOPPCSTACK=I6;
 TOPPCSTACK=L7; TOPPCSTACK=M7; TOPPCSTACK=I7;
 TOPPCSTACK=L3; TOPPCSTACK=M3; TOPPCSTACK=I3; TOPPCSTACK=AX0; 
 
+{откроем десультиплексор, чтобы выгрузить прошлый отсчет}
+I4 = demultAddr;  AR = PM(I4, M4);
+IO(TTL_OUT) = AR;
+NOP;NOP;NOP;NOP;NOP;NOP;NOP;NOP;
+NOP;NOP;NOP;NOP;NOP;NOP;NOP;NOP;
+NOP;NOP;NOP;NOP;NOP;NOP;NOP;NOP;
+NOP;NOP;NOP;NOP;NOP;NOP;NOP;NOP;
+AR=demultCloseCode; {закроем демультиплексор}
+IO(TTL_OUT) = AR; 
+
 
 
 { --- [БЛОК 1:  Вычисление КИХ-части (Входные отсчеты АЦП)] --- }
@@ -64,7 +74,7 @@ IF MV SAT MR;
 { --- [БЛОК 3: Сохранение нового результата] --- }
 { Пишем в историю ЦАП. I3 встал в новую позицию и перезапишет самый старый элемент }
 {I3 = 0x3FD0;}
-DM(I3, M3) = MR0;
+DM(I3, M3) = MR1;
 
 
 { Сохраняем новую начальную позицию в истории отсчётов цап }
@@ -74,39 +84,49 @@ PutPm(AX0, DacHistoryCurrentHdAddr);
 {Установим адресацию каналов}
 
 AX0 = I5;             {перенесем адрес текущей строки контрольной таблицы в опреационный регистр}
-I4 = AX0;
-M4 = relDacAddr;           {сдвиг между управляющими таблицами ADC и DAC-1}
-MODIFY(I4,M4);      {передвинемся в новый указатель}
-AX0 = PM(I4, M4);    {прочитаем логический адрес канала ЦАП}
+I6 = AX0;
+M6 = relDacAddr;           {сдвиг между управляющими таблицами ADC и DAC-1}
+MODIFY(I6,M6);      {передвинемся в новый указатель}
+AX0 = PM(I6, M6);    {прочитаем логический адрес канала ЦАП}
 M4=1;
+IO(TTL_OUT) = AX0; {выставляем логический адрес ЦАП, INH высокий}
 
 
+/*подготовим отсчет ЦАП*/
 {amplific coef}
 GetPm(SE, DACAmpAddr); {READ AND SHIFT DAC Value}
 SR = ASHIFT MR1 (HI);
 
 {CONVERT to 12 bit and add address DAQ startbits and load to DAQ port}
 SR = LSHIFT SR1 BY -4 (HI);
-AR=SR1;
+{AR=SR1;}
 
 
 /*разбор логического адреса и адресация */
 
-{Установим номер ЦАПА}
-AF = TSTBIT 9 of AX0;
-if NE JUMP dac2;
+{Установим номер ЦАП}
+
+AR=TSTBIT 8 of AX0;
+if NE JUMP dac1;
  
-dac1: 
+dac0: 
+    AR=SR1;
     AR = CLRBIT 12 OF AR; {This sets DAC number 0 }
-JUMP enddac;
-dac2: 
-    AR = CLRBIT 12 OF AR; {This sets DAC number  1}
+    TX0 = AR; {отсчет ушел в ЦАП}
+   
+    AR = CLRBIT 3 OF AX0;
+    PutPM(demultAddr,AR);
+     JUMP enddac;
+dac1: 
+    AR=SR1;
+    AR = SETBIT 12 OF AR; {This sets DAC number  1}
+    TX0 = AR; {отсчет ушел в ЦАП}
+    AR = CLRBIT 7 OF AX0;
+    I4 = demultAddr; PM(I4, M4) = AR;
+    
 enddac:
 
-TX0 = AR; {отсчет ушел в ЦАП}
 
-/*выставим адрес для демультиплексора*/
-IO(TTL_OUT) = AR; {ноги с 9 по 16 болтаются}
 
 
 

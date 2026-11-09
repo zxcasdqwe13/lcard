@@ -87,6 +87,7 @@
 .const	ProcSwitchAddr			=VariableBaseAddress + 0x4E; {procedure Flag after FIR proc}
 .const	DecimAddr				=VariableBaseAddress + 0x4F; {Decimation coefficient}
 .const  DacHistoryCurrentHdAddr			=VariableBaseAddress + 0x42;
+.const  demultAddr          =VariableBaseAddress + 0x43; {адрес выходного кода мультиплексора}
 { диапазон адресов от 0x35 до 0x80 - свободен								}
 
 
@@ -102,6 +103,8 @@
 {адреса таблицы коэффициентов и когнтрольной таблицы ЦАП относительно }
 .const  relDacAddr      =   ControlTableDACAddr	-ControlTableAddr-1;
 .const  relFirCoefAddr1	=   FirCoefAddr1		-ControlTableAddr-1;
+.const  demultCloseCode =   136;
+
 
 { текущая версия LBIOS																}
 /*.const	LBIOS_VERMAJOR 				=	3;*/   	{ старший байт версии	}
