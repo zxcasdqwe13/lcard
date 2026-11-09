@@ -1,5 +1,5 @@
 {Taps number}
-{#define nTaps 64} 
+{#define nTaps 16} 
 
 {pts shift}
 #define shift 1  

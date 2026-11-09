@@ -25,9 +25,10 @@ TOPPCSTACK=I4;
 AR = PM(I5, M5); IO(SET_ADC_CHANNEL) = AR;
   SR=LSHIFT AR BY 12 (HI);
 SR=LSHIFT SR1 BY -12 (HI);
-AY1=0;
-AR=SR1 - AY1;
-IF EQ JUMP ch1pr;
+{!!Сейчас в SR1 номер канала (по крайней мере, для 16 канальной системы)}
+{AY1=0;}
+{AR=SR1 - AY1;}
+{IF EQ JUMP ch1pr;}
 
 
 { чтение данных с АЦП}
@@ -39,30 +40,29 @@ DM(I3,M3)=MR1;
 CALL ch1processor;
 PutPm(MR1, FiltBufAddr);
 
-JUMP endchfill;
+{JUMP endchfill;}
 
-ch1pr:
-AR = IO(READ_ADC);
-AR = AR + AY1, AY1 = PM(I6,M6);
-MR = AR*MY1(SU), MY1 = PM(I6,M6);
-MR = MR(RND);
-DM(I3,M3)=MR1;
-CALL ch1processor;
-PutPm(MR1, FiltBufAddr+1);
+{ch1pr:}
+{AR = IO(READ_ADC);}
+{AR = AR + AY1, AY1 = PM(I6,M6);}
+{MR = AR*MY1(SU), MY1 = PM(I6,M6);}
+{MR = MR(RND);}
+{DM(I3,M3)=MR1;}
+{CALL ch1processor;}
+{PutPm(MR1, FiltBufAddr+1);}
 
 {Perform interchannel operations}
-#include <Inter-ch.h>
+{#include <Inter-ch.h>}
 {END Perform interchannel operations}
 
-{amplific coef}
-GetPm(SE, DACAmpAddr); {READ AND SHIFT DAC Value}
-SR = ASHIFT AR (HI);
 
-{CONVERT to 12 bit and add adress DAQ startbits and load to DAQ port}
+
+
+/*{CONVERT to 12 bit and add address DAQ startbits and load to DAQ port}
 SR = LSHIFT SR1 BY -4 (HI);
 AR=SR1;
-AR = CLRBIT 12 OF AR;
-TX0 = AR;
+AR = CLRBIT 12 OF AR; {This sets DAC number 0 ot 1}
+TX0 = AR;*/
 
 {_____________________END OF MODIFICATION_______________________}
 

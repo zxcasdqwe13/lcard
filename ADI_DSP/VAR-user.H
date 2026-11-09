@@ -4,9 +4,6 @@
 .var/SEG=INT_PM_USER/ABS=FirCoefAddr1/PM/RAM firCoef1[64];
 .INIT firCoef1: dfilt;
 
-.var/SEG=INT_PM_USER/ABS=FirCoefAddr2/PM/RAM firCoef2[64];
-.INIT firCoef2: dfilt;
-
 {not used-------------------------}
 .var/SEG=INT_PM_USER/ABS=DelayTTLAddr/PM/RAM DelayTTL;
 .init DelayTTL: M(0x3);
@@ -24,7 +21,7 @@
 {----------------------------------}
 
 .var/SEG=INT_PM_USER/ABS=NTapsAddr/PM/RAM NTaps;
-.init NTaps: M(127); {Taps to use -1}
+.init NTaps: M(15); {Taps to use -1}
 
 .var/SEG=INT_PM_USER/ABS=DACAmpAddr/PM/RAM DACAmp;
 .init DACAmp: M(amp);

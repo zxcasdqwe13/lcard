@@ -89,15 +89,19 @@
 .const  DacHistoryCurrentHdAddr			=VariableBaseAddress + 0x42;
 { диапазон адресов от 0x35 до 0x80 - свободен								}
 
-.const	ControlTableAddr				=	0x80;		{ массив на 128 слов	}
+
+.const	ControlTableAddr				=	0x80;		{ массив на 64 слова	}
+.const	ControlTableDACAddr				=	0xC0;		{ массив на 64 слова	}
 .const	CalibrationArrayAddr			=	0x100;	{ массив на 256 слов	}
 .const	DspInfoStructAddr				=	0x200;	{ массив на 256 слов	}
 .const  FirCoefAddr1					    =	0x300;
-.const  FirCoefAddr2					    =	0x380;
 .const  IirBCoefAddr					    =	0x3c0;  {FirCoefAddr2 + 64 отсчёта}
 .const  DacHistoryAddr					    =	0x3FD0;
 
 
+{адреса таблицы коэффициентов и когнтрольной таблицы ЦАП относительно }
+.const  relDacAddr      =   ControlTableDACAddr	-ControlTableAddr-1;
+.const  relFirCoefAddr1	=   FirCoefAddr1		-ControlTableAddr-1;
 
 { текущая версия LBIOS																}
 /*.const	LBIOS_VERMAJOR 				=	3;*/   	{ старший байт версии	}
