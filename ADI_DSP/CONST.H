@@ -22,7 +22,7 @@
 .const 	BDMA_Internal_Address      =	0x3FE1;
 
 { константы расположения LBIOS в памяти программ							}
-.const 	ProgaramBaseAddress      	=	0x400;
+.const 	ProgaramBaseAddress      	=	0x3BC2;
 .const 	VariableBaseAddress    		=	0x30;
 .const	ProgaramBaseAddressValAddr	= 	VariableBaseAddress + 0x0;
 .const	ReadyAddr						= 	VariableBaseAddress + 0x1;
@@ -81,13 +81,17 @@
 .const	DurationTTLAddr			=VariableBaseAddress + 0x39;
 .const  FiltBufAddr				=VariableBaseAddress + 0x40;
 
+.const  DacHistoryCurrentHdAddr	=VariableBaseAddress + 0x42;
+.const  demultAddr              =VariableBaseAddress + 0x43; {адрес выходного кода мультиплексора}
+.const  TotFirLenAddr           =VariableBaseAddress + 0x44; 
+
+
 .const	NTapsAddr				=VariableBaseAddress + 0x4B; {Taps to use in FIR}
 .const	DACAmpAddr				=VariableBaseAddress + 0x4C; {amplification coefficient 2^amp}
 .const	ShiftAddr	`			=VariableBaseAddress + 0x4D; {delay in taps for FIR proc}
 .const	ProcSwitchAddr			=VariableBaseAddress + 0x4E; {procedure Flag after FIR proc}
 .const	DecimAddr				=VariableBaseAddress + 0x4F; {Decimation coefficient}
-.const  DacHistoryCurrentHdAddr			=VariableBaseAddress + 0x42;
-.const  demultAddr          =VariableBaseAddress + 0x43; {адрес выходного кода мультиплексора}
+
 { диапазон адресов от 0x35 до 0x80 - свободен								}
 
 
@@ -96,8 +100,8 @@
 .const	CalibrationArrayAddr			=	0x100;	{ массив на 256 слов	}
 .const	DspInfoStructAddr				=	0x200;	{ массив на 256 слов	}
 .const  FirCoefAddr1					    =	0x300;
-.const  IirBCoefAddr					    =	0x3c0;  {FirCoefAddr2 + 64 отсчёта}
-.const  DacHistoryAddr					    =	0x3FD0;
+{.const  IirBCoefAddr					    =	0x3c0; } {FirCoefAddr2 + 64 отсчёта}
+{.const  DacHistoryAddr					    =	0x3FD0;}
 
 
 {адреса таблицы коэффициентов и когнтрольной таблицы ЦАП относительно }

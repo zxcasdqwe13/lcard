@@ -21,7 +21,10 @@
 {----------------------------------}
 
 .var/SEG=INT_PM_USER/ABS=NTapsAddr/PM/RAM NTaps;
-.init NTaps: M(15); {Taps to use -1}
+.init NTaps: M(15); {Taps to use -1 - per channel}
+
+.var/SEG=INT_PM_USER/ABS=TotFirLenAddr/PM/RAM TotFirLen;
+.init TotFirLen: M(256); {Total taps number}
 
 .var/SEG=INT_PM_USER/ABS=DACAmpAddr/PM/RAM DACAmp;
 .init DACAmp: M(amp);
@@ -36,12 +39,12 @@
 .init Decim: M(-dec*2);
 
 {массив коэффициентов b БИХ фильтра в области программ}
-.var/SEG=INT_PM_USER/ABS=IirBCoefAddr/PM/RAM IirBCoef[8];
-.INIT IirBCoef: 0, 0, 0, 0, 0, 0, 0, 0;
+{.var/SEG=INT_PM_USER/ABS=IirBCoefAddr/PM/RAM IirBCoef[8];}
+{.INIT IirBCoef: 0, 0, 0, 0, 0, 0, 0, 0;}
 
 {циклический буфер в области данных для истории отсчётов цап DacHistoryAddr = 0x3FD0}
-.VAR/SEG=INT_DM_USER/ABS=DacHistoryAddr/DM/RAM/CIRC DacHistoryCIRC[8];
-.INIT DacHistoryCIRC: 0, 1, 0, 0, 0, 0, 0, 0;
+{.VAR/SEG=INT_DM_USER/ABS=DacHistoryAddr/DM/RAM/CIRC DacHistoryCIRC[8];}
+{.INIT DacHistoryCIRC: 0, 1, 0, 0, 0, 0, 0, 0;}
 
-.var/SEG=INT_PM_USER/ABS=DacHistoryCurrentHdAddr/PM/RAM DacHistoryCurrentHd;
-.init DacHistoryCurrentHd: M(DacHistoryAddr);
+{.var/SEG=INT_PM_USER/ABS=DacHistoryCurrentHdAddr/PM/RAM DacHistoryCurrentHd;}
+{.init DacHistoryCurrentHd: M(DacHistoryAddr);}

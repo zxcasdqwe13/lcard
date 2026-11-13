@@ -14,8 +14,10 @@ clear all
 % 
 BaseAddr = 0x30;
 Addr = {};
-% ---- Количество элементов КИХ-фильтра -----
-NTaps = 64;     Addr.NTapsAdrdr = BaseAddr + 0x4B;
+% ---- Количество элементов КИХ-фильтра на канал-----
+NTaps = 16;     Addr.NTapsAdrdr = BaseAddr + 0x4B;
+% ---- Gjkyfz
+TotFirLen = 256; Addr.TotFirLenAddr = BaseAddr + 0x44;
 % ---- Усиление ЦАП -----
 DACAmp = 2;     Addr.DACAmpAddr = BaseAddr + 0x4C;
 % DACRate= 0xFFFF;       Addr.DACRateAddr = BaseAddr + 0x38;
@@ -27,20 +29,21 @@ ProcSwitch = 1; Addr.ProcSwitchAddr = BaseAddr + 0x4E;
 % ---- Шаг децимации -----
 % шаг без децимации для одного канала 0xFFFF=-1, шаг для двух каналов
 % каналов 0xFFFE=-2, 
-DecimUser=1;    
+DecimUser= 16;    
  Decim = 0x10000-DecimUser;   
    Addr.DecimAddr = BaseAddr + 0x4F;
 % ---- % Массив новых коэффициентов FIR фильтра 1 -----
 % FirCoef1(:,1) = ((65280:(65280+63)))';  %0xff00 + ii
-FirCoef1(:,1) = zeros(64,1); FirCoef1(1,1) = 0x8000;
+FirCoef1(:,1) = zeros(256,1); 
+FirCoef1(1:17:end,1) = 0x8000; %сейчас поканальный сдвиг на один шаг
 % f=fopen('test1.dat'); ma=fscanf(f,'%x\n'); fclose(f); FirCoef1(:,1) = ma(1:64);
 % ma=fi(sin([0:63]*2*pi/32).*hann(64)',1,16,15)/2;
 % FirCoef1(:,1) = sscanf(ma.hex,'%x\n');
 
 Addr.FirCoef1Addr = 0x300;
 % ---- % Массив новых коэффициентов IIR фильтра -----
-IirCoef1(:,1) = [1; 1; 1; 1; 1; 1; 1]*0;  % 7 шт
-Addr.IirCoef1Addr = 0x3c0;
+% IirCoef1(:,1) = [1; 1; 1; 1; 1; 1; 1]*0;  % 7 шт
+% Addr.IirCoef1Addr = 0x3c0;
 %
 
 % ---- % Адрес управляющей таблицы для ЦАП -----
@@ -66,8 +69,8 @@ IsCorrectionEnabled = false;
 ControlTable = [[0:15]*0]+1*64+0*32; % всегда первый канал
 % ---- Таблица каналов ЦАП----- 
 DACControlTable = [[0:7]+8+16*[0]+128+0*256,[0]+8+16*[0:7]+128+1*256]; % перебор каналов, 4 и 8 биты- 1
-
-
+% DACControlTable = [[0:7]+8+16*[0]+128+0*256,[0:7]+8+16*[0]+128+0*256]; % перебор каналов, 4 и 8 биты- 1
+% DACControlTable = [[0:3]+8+16*[0]+128+0*256,[0:3]+8+16*[0]+128+0*256,[0:3]+8+16*[0]+128+0*256,[0:3]+8+16*[0]+128+0*256]; % перебор каналов, 4 и 8 биты- 1
 % Функция записи данных в память программ
 % write_PM_varible(Значение, Адрес)
 
@@ -190,8 +193,11 @@ fprintf('Decim: %d\n', read_PM_varible(Addr.DecimAddr))
 
 
 % Запишем массив новых коэффициентов фильтра в E14-440
-write_PM_array(FirCoef1, Addr.FirCoef1Addr);
-write_iir_coef(IirCoef1, Addr.IirCoef1Addr);
+write_PM_array(FirCoef1(1:64), Addr.FirCoef1Addr);
+write_PM_array(FirCoef1(65:128), Addr.FirCoef1Addr+64);
+write_PM_array(FirCoef1(129:192), Addr.FirCoef1Addr+128);
+write_PM_array(FirCoef1(193:256), Addr.FirCoef1Addr+192);
+% write_iir_coef(IirCoef1, Addr.IirCoef1Addr);
 write_PM_array(repmat(DACControlTable,[1 4])', Addr.DACControlTable);
 
 
